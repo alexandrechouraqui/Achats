@@ -497,7 +497,7 @@ class DetailCommandeController extends Controller {
                     'entity' => $entity
             ));
             $data = $this->get('io_tcpdf')->quick_pdf($html);
-            $attachement = \Swift_Attachment::newInstance($data, 'out.pdf', 'application/pdf');
+            $attachement = \Swift_Attachment::newInstance($data, 'OA'.$entity->getId().'.pdf', 'application/pdf');
             
             $username = $this->container->get('security.context')->getToken()->getUser();
             $userManager = $this->get('fos_user.user_manager');
