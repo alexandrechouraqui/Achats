@@ -1,0 +1,43 @@
+{% extends "CrossknowledgeOrderManagementBundle:Article:layoutArticle.html.twig" %}
+
+{% block body %}
+    <h2>{{ "article.modifyitem" | trans}}</h2>
+
+    <form action="{{ path('article_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {#{ form_widget(edit_form) }#}
+        <table>
+            <tbody>
+                <tr>
+                    <td>{{form_label(edit_form.codeArticle)}}</td>
+                    <td>{{form_widget(edit_form.codeArticle)}}</td>
+                </tr>
+                <tr>
+                    <td>{{form_label(edit_form.typeArticle)}}</td>
+                    <td>{{form_widget(edit_form.typeArticle)}}</td>
+                </tr>
+                {{ form_rest(edit_form) }}
+                <tr>
+                    <td><button type="submit" class="btn primary">Sauver</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('article') }}" class="btn info">
+                    {{ "commun.backtolist" | trans}}
+                </a>
+            </td>        
+        </tr>
+        <tr>
+            <td>
+                <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <button type="submit" class="btn danger">{{ "commun.delete" | trans}}</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

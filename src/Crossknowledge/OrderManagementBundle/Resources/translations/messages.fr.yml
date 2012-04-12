@@ -1,0 +1,109 @@
+##Layout
+menu:
+  home: Home
+  item: Article
+  supplier: Fournisseur
+  prices: Tarif
+  order: Commande
+  profil: Profil
+
+login: Connexion
+logout: Déconnexion
+logas: Connecté en tant que
+
+##Homepage
+home:
+  title: Bienvenue sur l'outil de gestion des demandes d'achat
+  assignedto: Pour voir si vous avez des demandes d'achat qui vous sont assignées
+  assignedtoerror: Aucune demande d'achat ne vous est assignée pour le moment
+  clickhere: cliquez ici
+  
+##Commun
+commun:
+  backtolist: Retour à la liste
+  edit: Modifier
+  delete: Supprimer
+  create: Créer
+  see: Voir
+  seedetail: Voir détails
+  save: Sauver
+  
+##Article
+article:
+  article: Article
+  list: Liste des articles disponibles
+  additem: Ajouter un nouvel article
+  modifyitem: Modifier un article
+  code: Code article
+  designation: Désignation
+
+##Commande
+commande:
+  type: Type de commande
+  designation: Désignation
+  fournisseur: Fournisseur
+  modifycommande: Modifier l'en-tête d'une commande
+  list: Liste des commandes
+  add: Ajouter un nouvelle commande
+  
+##DetailCommande
+detailcommande:
+  type: Type
+  service: Service
+  designation: Désignation
+  client : Client
+  commande: Commande
+  article: Article
+  lettering: Lettrage
+  quantite: Qté
+  datelivraison: Date de livraison
+  remarque: Remarque
+  accord: Accord du responsable
+  prixht: Prix HT
+  prixttc: Prix TTC
+  tva: TVA
+  creepar: Créé par
+  assignedto: Assigné à
+  list: Détail de la commande numéro
+  modify: Modifier la ligne
+  add : Ajouter une ligne à la commande numéro
+  print : Imprimer
+  
+##Fournisseur
+fournisseur:
+  fournisseur: Fournisseur
+  type: Type de fournisseur
+  code: Code fournisseur
+  contact: Contact
+  phone: Téléphone
+  mail: E-mail
+  address: Adresse de facturation
+  CAorder: CA commandé
+  CAlettre: CA lettré
+  raisonsociale: Raison sociale
+  devise: Devise
+  modify: Modifier un fournisseur
+  list: Liste des fournisseurs
+  add: Ajouter un nouveau fournisseur
+  
+##Tarif
+tarif:
+  tarif: Tarif
+  fournisseur: Fournisseur
+  article: Article
+  prix: Prix Unitaire HT
+  ancienprix: Ancien prix unitaire HT
+  tva: TVA
+  list: Liste des tarifs
+  modify: Modifier un tarif
+  add: Ajouter un nouveau tarif
+  
+  ##User
+  user:
+     profile:
+        show.username: Identifiant
+        show.email: E-mail
+        show.ismanager: Manager
+        show.budget: Budget
+        show.budgetrestant: Budget Restant
+  

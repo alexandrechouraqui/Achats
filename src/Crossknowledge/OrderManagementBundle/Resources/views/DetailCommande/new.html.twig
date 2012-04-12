@@ -1,0 +1,75 @@
+{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
+
+{% block body %}
+<h2>{{ "detailcommande.add" | trans }} : {{ commande.id }}</h2>
+
+<p style="display: none;"><input type="text" id="fournisseur" style="display: none;" value="{{ commande.fournisseur.id }}"></input></p>
+
+<form action="{{ path('detailcommande_create', {'id_commande' : commande.id }) }}" method="post" {{ form_enctype(form) }} name="new">
+    {#{ form_widget(form) }#}
+    <table>
+        <tbody>
+            <tr>
+                <td>{{ form_label(form.article) }}</td>
+                <td>{{ form_widget(form.article) }}</td>
+                <td>{{ form_label(form.BU) }}</td>
+                <td>{{ form_widget(form.BU) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.designation) }}</td>
+                <td>{{ form_widget(form.designation, { 'attr' : { 'value' : commande.designation} }) }}</td>
+                <td>{{ form_label(form.client) }}</td>
+                <td>{{ form_widget(form.client) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.quantite) }}</td>
+                <td>{{ form_widget(form.quantite) }}</td>
+                <td>{{ form_label(form.tva) }}</td>
+                <td>{{ form_widget(form.tva) }}%</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.prixHT) }}</td>
+                <td>{{ form_widget(form.prixHT) }} {{ commande.fournisseur.devise }}</td>
+                <td>{{ form_label(form.dateLivraison) }}</td>
+                <td>{{ form_widget(form.dateLivraison) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.assignedTo) }}</td>
+                <td>{{ form_widget(form.assignedTo) }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>{{ form_label(form.accordBUM) }}</td>
+                    <td>{{ form_widget(form.accordBUM) }}</td>
+                {% else %}
+                    <td style="display: none;">{{ form_label(form.accordBUM) }}</td>
+                    <td style="display: none;">{{ form_widget(form.accordBUM) }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>{{ form_label(form.remarque) }}</td>
+                <td>{{ form_widget(form.remarque) }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>{{ form_label(form.lettrage) }}</td>
+                    <td>{{ form_widget(form.lettrage) }}</td>
+                {% else%}
+                    <td style="display: none;">{{ form_label(form.lettrage) }}</td>
+                    <td style="display: none;">{{ form_widget(form.lettrage) }}</td>
+                {% endif %}
+            </tr>
+            {{ form_rest(form) }}
+            <tr>
+                <td style="text-align:center;" colspan="4"><button type="submit" class="btn primary">{{ "commun.create" | trans }}</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<table class="">
+    <tr>
+        <td>
+            <a href="{{ path('detailcommande_detail', {'id' : commande.id }) }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+            </a>
+        </td>
+    </tr>
+</table>
+{% endblock %}

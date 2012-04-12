@@ -1,0 +1,63 @@
+{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
+
+{% block body %}
+
+<h2>{{ "detailcommande.list" | trans }}</h2>
+
+
+<table class="zebra-striped">
+    <thead>
+        <tr>
+            <th>{{ "detailcommande.type" | trans }}</th>
+            <th>{{ "detailcommande.service" | trans }}</th>
+            <th>{{ "detailcommande.designation" | trans }}</th>
+            <th>{{ "detailcommande.lettering" | trans }}</th>
+            <th>{{ "detailcommande.quantite" | trans }}</th>
+            <th>{{ "detailcommande.datelivraison" | trans }}</th>
+            <th>{{ "detailcommande.remarque" | trans }}</th>
+            <th>{{ "detailcommande.accord" | trans }}</th>
+            <th>{{ "detailcommande.prixht" | trans }}</th>
+            <th>{{ "detailcommande.tva" | trans }}</th>
+            <th>{{ "detailcommande.prixttc" | trans }}</th>
+            <th>{{ "detailcommande.creepar" | trans }}</th>
+            <th>{{ "detailcommande.assignedto" | trans }}</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.BU }}</td>
+                <td>{{ entity.designation }}</td>
+                <td>{{ entity.lettrage }}</td>
+                <td>{{ entity.quantite }}</td>
+                <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d') }}{% endif%}</td>
+                <td>{{ entity.remarque }}</td>
+                <td>{{ entity.accordBUM }}</td>
+                <td>{{ entity.prixHT }}</td>
+                <td>{{ entity.tva }}%</td>
+                <td>{{ entity.prixTTC }}</td>
+                <td>{{ entity.createdBy }}</td>
+                <td>{{ entity.assignedTo }}</td>
+                <td>
+                    <a href="{{ path('detailcommande_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
+                </td>
+                <td>
+                    <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+        <tr>
+            <td>
+                <a href="{{ path('detailcommande_new') }}" class="btn primary">
+                    {{ "detailcommande.add" | trans }}
+                </a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

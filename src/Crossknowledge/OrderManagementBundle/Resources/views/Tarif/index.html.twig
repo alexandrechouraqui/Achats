@@ -1,0 +1,61 @@
+{% extends "CrossknowledgeOrderManagementBundle:Tarif:layoutTarif.html.twig" %}
+
+{% block body %}
+    <h2>{{ "tarif.list" | trans }}</h2>
+
+    <table class="zebra-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>{{ "tarif.fournisseur" | trans }}</th>
+                <th>{{ "tarif.article" | trans }}</th>
+                <th>{{ "tarif.prix" | trans }}</th>
+                <th>{{ "tarif.ancienprix" | trans }}</th>
+                <th>{{ "tarif.tva" | trans }}</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('tarif_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.fournisseur.raisonSociale }}</td>
+                <td>{{ entity.article.typeArticle }}</td>
+                <td>{{ entity.prix }} {{ entity.fournisseur.devise }}</td>
+                <td>{{ entity.ancienPrix }} {{ entity.fournisseur.devise }}</td>
+                <td>{{ entity.tva }} %</td>
+                <td>
+                    <a href="{{ path('tarif_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
+                </td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>
+                        <a href="{{ path('tarif_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a class="opener1"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                    </td>
+                {% endif%}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+        <tr>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <a href="{{ path('tarif_new') }}" class="btn primary">
+                        {{ "tarif.add" | trans }}
+                    </a>
+                </td>
+            {% else %}
+                <td>
+                    <a class="btn primary opener1">
+                        {{ "tarif.add" | trans }}
+                    </a>
+                </td>
+            {% endif%}
+        </tr>
+    </table>
+{% endblock %}

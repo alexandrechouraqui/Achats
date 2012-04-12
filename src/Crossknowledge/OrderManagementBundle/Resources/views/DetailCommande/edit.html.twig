@@ -1,0 +1,81 @@
+{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
+
+{% block body %}
+    <h2>{{ "detailcommande.modify" | trans }}</h2>
+
+    <form action="{{ path('detailcommande_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_errors(edit_form) }}    
+        <table>
+            <tbody>
+                 <tr>
+                    <td>{{ form_label(edit_form.article) }}</td>
+                    <td>{{ form_widget(edit_form.article) }}</td>
+                    <td>{{ form_label(edit_form.BU) }}</td>
+                    <td>{{ form_widget(edit_form.BU) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(edit_form.designation) }}</td>
+                    <td>{{ form_widget(edit_form.designation) }}</td>
+                    <td>{{ form_label(edit_form.client) }}</td>
+                    <td>{{ form_widget(edit_form.client) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(edit_form.quantite) }}</td>
+                    <td>{{ form_widget(edit_form.quantite) }}</td>
+                    <td>{{ form_label(edit_form.tva) }}</td>
+                    <td>{{ form_widget(edit_form.tva) }}%</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(edit_form.prixHT) }}</td>
+                    <td>{{ form_widget(edit_form.prixHT) }}</td>
+                    <td>{{ form_label(edit_form.dateLivraison) }}</td>
+                    <td>{{ form_widget(edit_form.dateLivraison) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(edit_form.assignedTo) }}</td>
+                    <td>{{ form_widget(edit_form.assignedTo) }}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td>{{ form_label(edit_form.accordBUM) }}</td>
+                        <td>{{ form_widget(edit_form.accordBUM) }}</td>
+                    {% else %}
+                        <td style="display: none;">{{ form_label(edit_form.accordBUM) }}</td>
+                        <td style="display: none;">{{ form_widget(edit_form.accordBUM) }}</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>{{ form_label(edit_form.remarque) }}</td>
+                    <td>{{ form_widget(edit_form.remarque) }}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td>{{ form_label(edit_form.lettrage) }}</td>
+                        <td>{{ form_widget(edit_form.lettrage) }}</td>
+                    {% else%}
+                        <td style="display: none;">{{ form_label(edit_form.lettrage) }}</td>
+                        <td style="display: none;">{{ form_widget(edit_form.lettrage) }}</td>
+                    {% endif %}
+                </tr>
+                {{ form_rest(edit_form) }}
+                <tr>
+                    <td colspan="2" style="text-align: center;"><button type="submit" class="btn primary" >{{ "commun.save" | trans }}</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('detailcommande_detail', { 'id' : entity.commande.id }) }}" class="btn primary">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            </td>
+                <form action="{{ path('detailcommande_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

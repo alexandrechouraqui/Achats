@@ -1,0 +1,27 @@
+Homepage:
+    pattern:  /
+    defaults: { _controller: CrossknowledgeOrderManagementBundle:OrderManagement:index }
+    
+Article_crud:
+    resource: "routing/article.yml"
+    prefix:   crossknowledge/article
+    
+Fournisseur_crud:
+    resource: "routing/fournisseur.yml"
+    prefix:   crossknowledge/fournisseur
+    
+Tarif_crud:
+    resource: "routing/tarif.yml"
+    prefix:   crossknowledge/tarif
+    
+Commande_crud:
+    resource: "routing/commande.yml"
+    prefix:   crossknowledge/commande
+    
+Detailcommande_crud:
+    resource: "routing/detailcommande.yml"
+    prefix:   crossknowledge/detailcommande
+
+language:
+    pattern: /{langue}/language
+    defaults: { _controller: CrossknowledgeOrderManagementBundle:OrderManagement:language }

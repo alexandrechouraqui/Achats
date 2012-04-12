@@ -1,0 +1,73 @@
+{% extends "CrossknowledgeOrderManagementBundle:Tarif:layoutTarif.html.twig" %}
+
+{% block body %}
+    <h2>{{ "tarif.tarif" | trans }}</h2>
+
+    <table class="zebra-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ "tarif.fournisseur" | trans }}</th>
+                <td>{{ entity.fournisseur.raisonSociale }}</td>
+            </tr><tr>
+                <th>{{ "tarif.article" | trans }}</th>
+                <td>{{ entity.article.typeArticle }}</td>
+            </tr>
+            <tr>
+                <th>{{ "tarif.prix" | trans }}</th>
+                <td>{{ entity.prix }} {{ entity.fournisseur.devise }}</td>
+            </tr>
+            <tr>
+                <th>{{ "tarif.ancienprix" | trans }}</th>
+                <td>{{ entity.ancienPrix }} {{ entity.fournisseur.devise }}</td>
+            </tr>
+            <tr>
+                <th>{{ "tarif.tva" | trans }}</th>
+                <td>{{ entity.tva }} %</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('tarif') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        {% if is_granted('ROLE_ADMIN') %}
+            <tr>
+                <td>
+                    <a href="{{ path('tarif_edit', { 'id': entity.id }) }}" class="btn info">
+                        {{ "commun.edit" | trans }}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form action="{{ path('tarif_delete', { 'id': entity.id }) }}" method="post">
+                        {{ form_widget(delete_form) }}
+                            <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>
+                    <a class="btn info opener1">
+                        {{ "commun.edit" | trans }}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn danger opener1">{{ "commun.delete" | trans }}</a>
+                </td>
+            </tr>
+        {% endif %}
+    </table>
+{% endblock %}

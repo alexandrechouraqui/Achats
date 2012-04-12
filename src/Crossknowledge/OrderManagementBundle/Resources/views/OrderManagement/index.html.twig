@@ -1,0 +1,12 @@
+{% extends "CrossknowledgeOrderManagementBundle::layout.html.twig" %}
+
+{% block body %}
+    <h2>{{ "home.title" | trans }}</h2>
+    {% if is_granted('ROLE_MANAGER') %}
+        <br>
+        <br>
+        <br>
+        <p>{{ "home.assignedto" | trans }} <a href="{{ path('detailcommande_showassignedto') }}">{{ "home.clickhere" | trans }}</a></p>
+    {% endif %}
+{% endblock %}
+

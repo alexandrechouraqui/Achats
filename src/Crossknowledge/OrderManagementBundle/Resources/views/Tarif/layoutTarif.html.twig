@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Crossknowledge - Gestion des demandes d'achats{% endblock %}</title>
+		
+		{% block stylesheets %}
+			<link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/menu.css') }}"/>
+			<link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/table-bootstrap.css') }}"/>
+			<link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/button-bootstrap.css') }}"/>
+                        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/style.css') }}"/>
+                        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/grid-bootstrap.css') }}"/>
+                        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/jquery-ui-1.8.18.custom.css') }}"/>
+		{% endblock %}
+	</head>
+	
+	<body>
+            <div class="container">
+                <div class="row">
+                    <div id="header" class="span-two-thirds" >
+                        <br>
+                        <a href="{{ path('Homepage') }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/header_logo.gif') }}" alt="Crossknowledge"/></a>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="span-one-third">
+                        <br>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ "logas" | trans }} {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}" class="btn small primary">{{"logout" | trans }}</a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" class="btn small primary">{{ "login" | trans }}</a>
+                        {% endif %}
+                    </div>
+                    <div class="span-one-third">
+                        <a href="{{ path('language', {'langue' : 'fr'}) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/FR.png') }}" alt="fr"/></a>
+                        <a href="{{ path('language', {'langue' : 'en'}) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/EN.png') }}" alt="en"/></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="menu" class="">
+                        <ul class="tabs">
+                                <li><a href={{path('Homepage')}}>{{ "menu.home" | trans }}</a></li>	
+                                <li><a href={{path('fournisseur')}}>{{ "menu.supplier" | trans }}</a></li>
+                                <li><a href={{path('article')}}>{{ "menu.item" | trans }}</a></li>
+                                <li class="active"><a href={{path('tarif')}}>{{ "menu.prices" | trans }}</a></li>
+                                <li><a href={{path('commande')}}>{{ "menu.order" | trans }}</a></li>
+                                <li><a href={{path('fos_user_profile_show')}}>{{ "menu.profil" | trans }}</a></li>
+                        </ul>                
+                    </div>
+                </div>        
+                <div id="container">
+                        {% block body %}
+                        {% endblock %}
+                </div>
+                <div id="footer">
+
+                </div>
+            </div>
+            {% block javascripts %}
+                <script src="{{ asset('bundles/crossknowledgeordermanagement/js/jQuery.js') }}" type="text/javascript"></script>
+                <script src="{{ asset('bundles/crossknowledgeordermanagement/js/jquery-ui-1.8.18.custom.min.js') }}" type="text/javascript"></script>
+                <script src="{{ asset('bundles/crossknowledgeordermanagement/js/bootstrap-tabs.js') }}" type="text/javascript"></script>
+                <script src="{{ asset('bundles/crossknowledgeordermanagement/js/bootstrap-dropdown.js') }}" type="text/javascript"></script>
+                <script type="text/javascript">
+                    
+                    $(function () {
+                        $('.tabs').tabs()
+                    });
+                    $(document).ready(function() {
+                        var $dialog = $('<div></div>')
+                                .html('Vous n\'avez pas les droits suffisants pour effectuer cette action.')
+                                .dialog({
+                                        autoOpen: false,
+                                        title: 'Avertissement'
+                                });
+
+                        $('.opener1').click(function() {
+                                $dialog.dialog('open');
+                                // prevent the default action, e.g., following a link
+                                return false;
+                        });
+                    });
+                    
+                    //Requête AJAX pour récupérer le prix d'un article dans le formulaire d'ajout de ligne de commande
+        $('#crossknowledge_ordermanagementbundle_tariftype_fournisseur').change(function (){ 
+            var select = document.getElementById('crossknowledge_ordermanagementbundle_tariftype_fournisseur');
+            var fournisseurID = select.options[select.selectedIndex].value;
+            var request = $.ajax({
+                type: "POST",
+                url: "{{ path('tarif_recherche_devise')}}",
+                data: { fournisseur : fournisseurID },
+                dataType: "html"
+            });
+            request.done(function(msg) {
+                $('#devise').replaceWith('<div id="devise" style="display: inline;">' + msg + '</div>');
+                $('#devise_old').replaceWith('<div id="devise_old" style="display: inline;">' + msg + '</div>');
+            });
+            request.fail(function(jqXHR, textStatus) {
+                alert( "Request failed: " + textStatus );
+            });
+            return false;
+        });
+                </script>
+            {% endblock %}
+	</body>
+</html>

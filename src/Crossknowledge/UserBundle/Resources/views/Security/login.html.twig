@@ -1,0 +1,57 @@
+{% extends "FOSUserBundle::layoutLogin.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="row">
+        <div class="span-one-third offset-one-third">
+            <img src="{{ asset('bundles/crossknowledgeordermanagement/images/header_logo.gif') }}" alt="Crossknowledge" style="margin-left: 5px;margin-top: 20px;"/>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="span-one-third offset-one-third">
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="row">    
+        <div class="span-one-third offset-one-third">
+            {% if error %}
+            <div>{{ error|trans({}, 'CrossknowledgeUserBundle') }}</div>
+            {% endif %}
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                <table class="bordered-table">
+                    <tr>
+                        <td style="text-align: center;">
+                            <label for="username">{{ 'security.login.username'|trans({}, 'CrossknowledgeUserBundle') }}</label>
+                        </td>
+                        <td style="text-align: center;">
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <label for="password">{{ 'security.login.password'|trans({}, 'CrossknowledgeUserBundle') }}</label>
+                        </td>
+                        <td style="text-align: center;">
+                            <input type="password" id="password" name="_password" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        </td>
+                        <td style="text-align: center;">
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'CrossknowledgeUserBundle') }}</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <input type="submit" id="_submit" name="_submit" class="btn primary" value="{{ 'security.login.submit'|trans({}, 'CrossknowledgeUserBundle') }}" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock fos_user_content %}

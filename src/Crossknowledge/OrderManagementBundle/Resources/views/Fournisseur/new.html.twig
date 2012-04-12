@@ -1,0 +1,70 @@
+{% extends "CrossknowledgeOrderManagementBundle:Fournisseur:layoutFournisseur.html.twig" %}
+
+{% block body %}
+    <h2>{{"fournisseur.add" | trans }}</h2>
+
+    <form action="{{ path('fournisseur_create') }}" method="post" {{ form_enctype(form) }}>
+        {#{ form_widget(form) }#}
+        {{ form_errors(form) }}
+        <table>
+            <tbody>
+                <tr>
+                    <td>{{ form_label(form.codeFournisseur) }}</td>
+                    <td>{{ form_widget(form.codeFournisseur)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.raisonSociale) }}</td>
+                    <td>{{ form_widget(form.raisonSociale)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.contact) }}</td>
+                    <td>{{ form_widget(form.contact)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.telephone) }}</td>
+                    <td>{{ form_widget(form.telephone)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.mail) }}</td>
+                    <td>{{ form_widget(form.mail)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.adresseFacturation) }}</td>
+                    <td>{{ form_widget(form.adresseFacturation)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.devise)}}</td>
+                    <td>{{form_widget(form.devise)}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.caCommande) }}</td>
+                    <td>{{form_widget(form.caCommande, { 'attr' : { 'value' : '0'} })}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.caLettre) }}</td>
+                    <td>{{form_widget(form.caLettre, { 'attr' : { 'value' : '0'} })}}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.typeFournisseur) }}</td>
+                    <td>{{form_widget(form.typeFournisseur)}}</td>
+                </tr>
+                {{ form_rest(form) }}
+                <tr>
+                    <td style="text-align:center;" colspan="2">
+                            <button type="submit" class="btn primary">{{"commun.create" | trans }}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('fournisseur') }}" class="btn info">
+                    {{"commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

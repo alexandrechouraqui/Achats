@@ -1,0 +1,64 @@
+{% extends "CrossknowledgeOrderManagementBundle:Commande:layoutCommande.html.twig" %}
+
+{% block body %}
+    <h2>Commande</h2>
+
+    <table class="zebra-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ "commande.type" | trans }}</th>
+                <td>{{ entity.typeCommande }}</td>
+            </tr>
+            <tr>
+                <th>{{ "commande.fournisseur" | trans }}</th>
+                <td>{{ entity.fournisseur.raisonSociale }}</td>
+            </tr>
+             <tr>
+                <th>{{ "commande.designation" | trans }}</th>
+                <td>{{ entity.designation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('detailcommande_new', { 'id_commande' : entity.id }) }}" class="btn info">
+                    {{ "detailcommande.add" | trans }} : {{ entity.id }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ path('commande') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ path('commande_edit', { 'id': entity.id }) }}" class="btn info">
+                    {{ "commun.edit" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td>
+                    <form action="{{ path('commande_delete', { 'id': entity.id }) }}" method="post">
+                        {{ form_widget(delete_form) }}
+                            <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                    </form>
+                </td>
+            {% else %}
+                <td>
+                    <a class="btn danger opener1">{{ "commun.delete" | trans }}</a>
+                </td>
+            {% endif %}
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Crossknowledge - Gestion des demandes d'achats{% endblock %}</title>
+
+        {% block stylesheets %}
+                <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/menu.css') }}"/>
+                <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/table-bootstrap.css') }}"/>
+                <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/button-bootstrap.css') }}"/>
+                <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/style.css') }}"/>
+                <link rel="stylesheet" type="text/css" href="{{ asset('bundles/crossknowledgeordermanagement/css/grid-bootstrap.css') }}"/>
+        {% endblock %}
+    </head>
+	
+    <body>
+        <div class="container"> 
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+    </body>
+</html>

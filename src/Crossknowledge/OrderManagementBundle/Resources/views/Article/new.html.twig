@@ -1,0 +1,36 @@
+{% extends "CrossknowledgeOrderManagementBundle:Article:layoutArticle.html.twig" %}
+
+{% block body %}
+    <h2>{{ "article.additem" | trans}}</h2>
+
+    <form action="{{ path('article_create') }}" method="post" {{ form_enctype(form) }}>
+        {#{ form_widget(form) }#}
+        {{ form_errors(form) }}
+         <table>
+            <tbody>
+                <tr>
+                    <td>{{form_label(form.codeArticle)}}</td>
+                    <td>{{form_widget(form.codeArticle)}}</td>
+                </tr>
+                <tr>
+                    <td>{{form_label(form.typeArticle)}}</td>
+                    <td>{{form_widget(form.typeArticle)}}</td>
+                </tr>
+                {{ form_rest(form) }}
+                <tr>
+                    <td style="text-align:center;" colspan="2"><button type="submit" class="btn primary">{{ "commun.create" | trans }}</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('article') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

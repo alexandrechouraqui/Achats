@@ -1,0 +1,33 @@
+<div class="fos_user_user_show">
+    <h2>Profil de {{ user.username }}</h2>
+    <table class="zebra-striped">
+        <tr>
+            <th>{{ 'profile.show.username' | trans({}, 'FOSUserBundle') }}</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.shortid' | trans({}, 'CrossknowledgeUserBundle') }}</th>
+            <td>{{ user.shortID }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.email' | trans({}, 'FOSUserBundle') }}</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.ismanager' | trans({}, 'CrossknowledgeUserBundle') }}</th>
+            {% if user.ismanager == 1%}
+                <td>Yes</td>
+            {% else %}
+                <td>No</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.budget' | trans({}, 'CrossknowledgeUserBundle') }}</th>
+            <td>{{ user.budget }} €</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.budgetrestant' | trans({}, 'CrossknowledgeUserBundle') }}</th>
+            <td>{{ user.budgetrestant }} €</td>
+        </tr>
+    </table>
+</div>

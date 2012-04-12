@@ -1,0 +1,88 @@
+{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
+
+{% block body %}
+<h2>{{ "detailcommande.list" | trans }} : {{ commande.id }}</h2>
+
+
+<table class="zebra-striped">
+    <thead>
+        <tr>
+            <th>{{ "detailcommande.type" | trans }}</th>
+            <th>{{ "detailcommande.service" | trans }}</th>
+            <th>{{ "detailcommande.designation" | trans }}</th>
+            <th>{{ "detailcommande.client" | trans }}</th>
+            <th>{{ "detailcommande.quantite" | trans }}</th>
+            <th>{{ "detailcommande.datelivraison" | trans }}</th>
+            <th>{{ "detailcommande.remarque" | trans }}</th>
+            <th>{{ "detailcommande.accord" | trans }}</th>
+            <th>{{ "detailcommande.lettering" | trans }}</th>
+            <th>{{ "detailcommande.prixht" | trans }}</th>
+            <th>{{ "detailcommande.tva" | trans }}</th>
+            <th>{{ "detailcommande.prixttc" | trans }}</th>
+            <th>{{ "detailcommande.creepar" | trans }}</th>
+            <th>{{ "detailcommande.assignedto" | trans }}</th>
+            <th colspan="3">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.BU }}</td>
+                <td>{{ entity.designation }}</td>
+                <td>{{ entity.client }}</td>
+                <td>{{ entity.quantite }}</td>
+                <td>{% if entity.dateLivraison %}{{ entity.dateLivraison|date('Y-m-d') }}{% endif%}</td>
+                <td>{{ entity.remarque }}</td>
+                {%if entity.accordBUM == 1 %}
+                    <td>Yes</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+                {%if entity.lettrage == 1 %}
+                    <td>Yes</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+                <td>{{ entity.prixHT }} {{ entity.commande.fournisseur.devise }}</td>
+                <td>{{ entity.tva }} %</td>
+                <td>{{ entity.prixTTC }} {{ entity.commande.fournisseur.devise }}</td>
+                <td>{{ entity.createdBy.shortID }}</td>
+                <td>{{ entity.assignedTo.shortID }}</td>
+                <td>
+                    <a href="{{ path('detailcommande_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
+                </td>
+                {% if app.user.username == entity.createdBy%}
+                    <td>
+                        <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a class="opener1"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                    </td>
+                {% endif %}
+                <td>
+                    <a target="_blank" href="{{ path('detailcommande_print', { 'id': entity.id }) }}"><img style="height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+        <tr>
+            <td>
+                <a href="{{ path('detailcommande_new', { 'id_commande' : commande.id}) }}" class="btn primary">
+                    {{ "detailcommande.add" | trans }} : {{ commande.id }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ path('commande') }}" class="btn primary">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

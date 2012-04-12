@@ -1,0 +1,49 @@
+{% extends "CrossknowledgeOrderManagementBundle:Tarif:layoutTarif.html.twig" %}
+
+{% block body %}
+    <h2>{{ "tarif.add" | trans }}</h2>
+
+    <form action="{{ path('tarif_create') }}" method="post" {{ form_enctype(form) }} name="new">
+        {#{ form_widget(form) }#}
+        <table>
+            <tbody>
+                <tr>
+                        <td>{{form_label(form.fournisseur) }}</td>
+                        <td>{{form_widget(form.fournisseur)}}</td>
+                </tr>
+                <tr>
+                        <td>{{form_label(form.article) }}</td>
+                        <td>{{form_widget(form.article)}}</td>
+                </tr>
+                <tr>
+                        <td>{{form_label(form.prix) }}</td>
+                        <td>{{form_widget(form.prix)}} <div id="devise"></div></td>
+                </tr>
+                <tr>
+                        <td>{{form_label(form.ancienPrix) }}</td>
+                        <td>{{form_widget(form.ancienPrix)}} <div id="devise_old"></div></td>
+                </tr>
+                <tr>
+                        <td>{{form_label(form.tva) }}</td>
+                        <td>{{form_widget(form.tva, { 'attr': {'value' : '19.6'} })}} %</td>
+                </tr>
+                {{ form_rest(form) }}
+                <tr>
+                        <td style="text-align:center;" colspan="2">
+                            <button type="submit" class="btn primary">{{ "commun.create" | trans }}</button>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('tarif') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

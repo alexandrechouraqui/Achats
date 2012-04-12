@@ -1,0 +1,92 @@
+
+<style type="text/css">
+</style>
+
+<h3 align="center" border="1">Ordre d'achat</h3>
+
+<br>
+<p><b><u>Informations Demandeur</u></b></p>
+<p style="text-align:justify;">
+    Service demandeur : {{ entity.BU }}<br>
+    Client Final      : {{ entity.client }}
+</p>
+
+<p><b><u>Informations Fournisseur</u></b></p>
+<p style="text-align:justify;">
+    Raison Sociale : {{ entity.commande.fournisseur.raisonSociale }}<br>
+    Adresse        : {{ entity.commande.fournisseur.adresseFacturation }}
+</p>
+
+<p><b><u>Informations concernant l'achat</u></b></p>
+<p>
+    Nature du bien et du service : {{ entity.commande.designation}}<br>
+    Date de livraison : {{ entity.dateLivraison|date('d/m/Y') }}
+</p>
+<p>
+    <table id="commande" border="1" cellspacing="0" cellpadding="1">
+        <tr>
+            <th align="center" width="300px"> 
+                <b>{{ 'detailcommande.designation' | trans}}</b>
+            </th>
+            <th align="center" width="50px">
+                <b>{{ 'detailcommande.quantite' | trans}}</b>
+            </th>
+            <th align="center" width="150px">
+                <b>{{ 'detailcommande.prixht' | trans}}</b>
+            </th>
+            <th align="center" width="150px">
+                <b>Montant HT</b>
+            </th>
+        </tr>
+        <tr>
+            <td align="center">
+                {{ entity.article.typeArticle }}
+            </td>
+            <td align="center">
+                {{ entity.quantite }}
+            </td>
+            <td align="center">
+                {{ entity.prixHT }} {{ entity.commande.fournisseur.devise }}
+            </td>
+            <td align="right">
+                {{ entity.quantite * entity.prixHT }} {{ entity.commande.fournisseur.devise }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right">
+                <b>Total HT</b>
+            </td>
+            <td align="right">
+                {{ entity.quantite * entity.prixHT }} {{ entity.commande.fournisseur.devise }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right">
+                <b>TVA ({{ entity.tva}} %)</b>
+            </td>
+            <td align="right">
+                {{ entity.quantite * entity.prixHT * (entity.tva / 100) }} {{ entity.commande.fournisseur.devise }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right">
+                <b>Montant total TTC</b>
+            </td>
+            <td align="right">
+                {{ entity.prixTTC}} {{ entity.commande.fournisseur.devise }}
+            </td>
+        </tr>
+    </table>
+</p>
+
+<p><b><u>Réservé à l'aprobation</u></b></p>
+<table border="1" cellspacing="0" cellpadding="1">
+    <tr>
+        <td width="300px" heigh="200px">
+            Autorisé le<br>
+            (Bon pour accord et signature)<br>
+            <br>
+            <br>
+        </td>
+    </tr>
+</table>

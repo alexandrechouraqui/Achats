@@ -1,0 +1,90 @@
+{% extends "CrossknowledgeOrderManagementBundle:Fournisseur:layoutFournisseur.html.twig" %}
+
+{% block body %}
+    <h2>{{"fournisseur.fournisseur" | trans }}</h2>
+
+    <table class="zebra-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.code" | trans }}</th>
+                <td>{{ entity.codeFournisseur }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.type" | trans }}</th>
+                <td>{{ entity.typeFournisseur }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.raisonsociale" | trans }}</th>
+                <td>{{ entity.raisonSociale }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.contact" | trans }}</th>
+                <td>{{ entity.contact }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.phone" | trans }}</th>
+                <td>{{ entity.telephone }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.mail" | trans }}</th>
+                <td>{{ entity.mail }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.address" | trans }}</th>
+                <td>{{ entity.adresseFacturation }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.CAorder" | trans }}</th>
+                <td>{{ entity.caCommande }} {{ entity.devise }}</td>
+            </tr>
+            <tr>
+                <th>{{"fournisseur.CAlettre" | trans }}</th>
+                <td>{{ entity.caLettre }} {{ entity.devise }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('fournisseur') }}" class="btn info">
+                    {{"commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        {% if is_granted('ROLE_ADMIN')  %}
+        <tr>
+            <td>
+                <a href="{{ path('fournisseur_edit', { 'id': entity.id }) }}" class="btn info">
+                    {{"commun.edit" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="{{ path('fournisseur_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                        <button type="submit" class="btn danger">{{"commun.delete" | trans }}</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+            <tr>
+            <td>
+                <a  class="btn info opener1">
+                    {{"commun.edit" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>  
+                <a  class="btn danger opener1">{{"commun.delete" | trans }}</a>
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+{% endblock %}

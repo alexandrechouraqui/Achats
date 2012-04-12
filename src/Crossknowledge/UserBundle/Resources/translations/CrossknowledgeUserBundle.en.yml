@@ -1,0 +1,9 @@
+security.login.username : Login
+security.login.password : Password
+security.login.remember_me : Remember me
+security.login.submit : Login
+
+profile.show.shortid : Short ID
+profile.show.ismanager: Manager
+profile.show.budget: Budget
+profile.show.budgetrestant: Remaining budget

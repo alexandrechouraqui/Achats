@@ -1,0 +1,30 @@
+commande:
+    pattern:  /
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:index" }
+
+commande_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:show" }
+
+commande_new:
+    pattern:  /new
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:new" }
+
+commande_create:
+    pattern:  /create
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:create" }
+    requirements: { _method: post }
+
+commande_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:edit" }
+
+commande_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:update" }
+    requirements: { _method: post }
+
+commande_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Commande:delete" }
+    requirements: { _method: post }

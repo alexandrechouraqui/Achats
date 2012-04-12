@@ -1,0 +1,39 @@
+{% extends "CrossknowledgeOrderManagementBundle:Commande:layoutCommande.html.twig" %}
+
+{% block body %}
+    <h2>{{ "commande.add" | trans }}</h2>
+
+    <form action="{{ path('commande_create') }}" method="post" {{ form_enctype(form) }}>
+        {#{ form_widget(form) }#}
+        <table>
+            <tbody>
+                <tr>
+                    <td>{{ form_label(form.typeCommande) }}</td>
+                    <td>{{ form_widget(form.typeCommande) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.fournisseur) }}</td>
+                    <td>{{ form_widget(form.fournisseur) }}</td>
+                </tr>
+                 <tr>
+                    <td>{{ form_label(form.designation) }}</td>
+                    <td>{{ form_widget(form.designation) }}</td>
+                </tr>
+                {{ form_rest(form) }}
+                <tr>
+                    <td style="text-align:center;" colspan="2"><button type="submit" class="btn primary">{{ "commun.create" | trans }}</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('commande') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </tr>
+        </tr>
+    </table>
+{% endblock %}

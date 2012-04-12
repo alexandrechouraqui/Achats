@@ -1,0 +1,30 @@
+article:
+    pattern:  /
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:index" }
+
+article_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:show" }
+
+article_new:
+    pattern:  /new
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:new" }
+
+article_create:
+    pattern:  /create
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:create" }
+    requirements: { _method: post }
+
+article_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:edit" }
+
+article_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:update" }
+    requirements: { _method: post }
+
+article_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Article:delete" }
+    requirements: { _method: post }

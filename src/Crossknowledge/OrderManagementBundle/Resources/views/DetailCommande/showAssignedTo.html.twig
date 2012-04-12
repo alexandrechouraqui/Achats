@@ -1,0 +1,65 @@
+{# empty Twig template #}{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
+
+{% block body %}
+    <h2>Liste des commandes assignées à {{ app.user.username }}</h2>
+
+    {% if entities == null %}
+        <p>{{ "home.assignedtoerror" | trans }}</p>
+    {% else %}
+    <table class="zebra-striped">
+        <thead>
+            <tr><th>{{ "detailcommande.type" | trans }}</th>
+                <th>{{ "detailcommande.service" | trans }}</th>
+                <th>{{ "detailcommande.commande" | trans }}</th>
+                <th>{{ "detailcommande.designation" | trans }}</th>
+                <th>{{ "detailcommande.client" | trans }}</th>
+                <th>{{ "detailcommande.article" | trans }}</th>
+                <th>{{ "detailcommande.quantite" | trans }}</th>
+                <th>{{ "detailcommande.prixht" | trans }}</th>
+                <th>{{ "detailcommande.prixttc" | trans }}</th>
+                <th>{{ "detailcommande.accord" | trans }}</th>
+                <th>{{ "detailcommande.creepar" | trans }}</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.type }}</td>
+                    <td>{{ entity.BU }}</td>
+                    <td>{{ entity.commande.designation}}</td>
+                    <td>{{ entity.designation }}</td>
+                    <td>{{ entity.client }}</td>
+                    <td>{{ entity.article.typeArticle}}</td>
+                    <td>{{ entity.quantite }}</td>
+                    <td>{{ entity.prixHT }} €</td>
+                    <td>{{ entity.prixTTC }} €</td>
+                    <td>{{ entity.accordBUM }}</td>
+                    <td>{{ entity.createdBy.shortID }}</td>
+                    <td>
+                        <a href="{{ path('detailcommande_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
+                    </td>
+                    {% if app.user.username == entity.createdBy%}
+                        <td>
+                            <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <a class="opener1"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table class="">
+            <tr>
+                <td>
+                    <a href="{{ path('Homepage') }}" class="btn primary">
+                        {{ "commun.backtolist" | trans }}
+                    </a>
+                </td>
+            </tr>
+        </table>    
+    {% endif %}
+{% endblock %}

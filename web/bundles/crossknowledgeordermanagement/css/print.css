@@ -1,0 +1,21 @@
+@page{
+    size: portrait A4;
+    margin: 2cm; 
+}
+
+
+#head{
+    height: auto;
+}
+#head #fournisseur{
+    float: right;
+}
+
+#contenu #title{
+    margin-top: 150px;
+    margin-left: 40%;
+}
+
+#contenu #tableau #commande{
+    border: 1px solid black;
+}

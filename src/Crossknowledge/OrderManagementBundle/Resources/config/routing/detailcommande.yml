@@ -1,0 +1,66 @@
+detailcommande:
+    pattern:  /
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:index" }
+    
+detailcommande_detail:
+    pattern:  /{id}/detail
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:indexByCommande" }
+
+detailcommande_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:show" }
+    
+detailcommande_showassignedto:
+    pattern: /showassignedto
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:showAssignedTo"}
+
+detailcommande_new:
+    pattern:  /{id_commande}/new
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:new" }
+
+detailcommande_create:
+    pattern:  /{id_commande}/create
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:create" }
+    requirements: { _method: post }
+
+detailcommande_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:edit" }
+
+detailcommande_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:update" }
+    requirements: { _method: post }
+
+detailcommande_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:delete" }
+    requirements: { _method: post }
+    
+detailcommande_pdf:
+    pattern: /{id}/pdf
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:pdf" }
+
+detailcommande_lettrage:
+    pattern: /{id}/lettrage
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:lettrage" }
+    
+detailcommande_accord:
+    pattern: /{id}/accord
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:accord" }
+    
+detailcommande_recherche_prix:
+    pattern: /detailcommande/rechercheprix
+    defaults: { _controller: CrossknowledgeOrderManagementBundle:DetailCommande:recherchePrix }
+    requirements:
+      _method: POST
+      
+detailcommande_recherche_tva:
+    pattern: /detailcommande/recherchetva
+    defaults: { _controller: CrossknowledgeOrderManagementBundle:DetailCommande:rechercheTVA }
+    requirements:
+      _method: POST
+      
+detailcommande_print:
+    pattern: /{id}/print
+    defaults: { _controller: CrossknowledgeOrderManagementBundle:DetailCommande:print }

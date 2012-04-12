@@ -1,0 +1,158 @@
+{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
+
+{% block body %}
+    <h2>Ligne de la commande {{ entity.commande.id }}</h2>
+
+    <table class="zebra-striped">
+        <tbody>
+            <tr>
+                <th>{{ "detailcommande.commande" | trans }}</th>
+                <td>{{ entity.commande.designation }}</td>
+                <th>{{ "detailcommande.creepar" | trans }}</th>
+                <td>{{ entity.createdBy.shortID }}</td>
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.article" | trans }}</th>
+                <td>{{ entity.article }}</td>
+                <th>{{ "detailcommande.service" | trans }}</th>
+                <td>{{ entity.BU }}</td>
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.designation" | trans }}</th>
+                <td>{{ entity.designation }}</td>
+                <th>{{ "detailcommande.type" | trans }}</th>
+                <td>{{ entity.type }}</td>
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.client" | trans }}</th>
+                <td>{{ entity.client }}</td>
+                <th>{{ "detailcommande.quantite" | trans }}</th>
+                <td>{{ entity.quantite }}</td>
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.prixht" | trans }}</th>
+                <td>{{ entity.prixHT }} {{ entity.commande.fournisseur.devise }}</td>
+                <th>{{ "detailcommande.datelivraison" | trans }}</th>
+                <td>{{ entity.dateLivraison|date('d/m/Y') }}</td>
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.tva" | trans }}</th>
+                <td>{{ entity.tva }}%</td>
+                <th>{{ "detailcommande.prixttc" | trans }}</th>
+                <td colspan="3">{{ entity.prixTTC }} {{ entity.commande.fournisseur.devise }}</td>
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.assignedto" | trans }}</th>
+                <td>{{ entity.assignedTo.shortID }}</td>
+                <th>{{ "detailcommande.accord" | trans }}</th>
+                {%if entity.accordBUM == 1 %}
+                    <td>Yes</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>{{ "detailcommande.remarque" | trans }}</th>
+                <td>{{ entity.remarque }}</td>
+                <th>{{ "detailcommande.lettering" | trans }}</th>
+                {%if entity.lettrage == 1 %}
+                    <td>Yes</td>
+                {% else %}
+                    <td>No</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="" style="width:350px;">
+        <tr>
+            <td colspan="2">
+                <a href="{{ path('detailcommande_new', { 'id_commande' : entity.commande.id}) }}" class="btn primary">
+                    {{ "detailcommande.add" | trans }} : {{ entity.commande.id }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="{{ path('detailcommande_detail', {'id' : entity.commande.id }) }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            {% if app.user.username == entity.createdBy %}
+                <td>
+                    <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}" class="btn info">
+                        {{ "commun.edit" | trans }}
+                    </a>
+                </td>
+            {% else %}
+                <td colspan="2">
+                    <a id="opener1" class="btn info">
+                        {{ "commun.edit" | trans }}
+                    </a>
+                </td>
+            {% endif%}
+            {% if is_granted('ROLE_ADMIN') %}
+                <td colspan="2">
+                    <form action="{{ path('detailcommande_delete', { 'id': entity.id }) }}" method="post">
+                        {{ form_widget(delete_form) }}
+                            <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                    </form>
+                </td>
+            {% else %}
+                <td colspan="2">
+                    
+                    <a id="opener2" class="btn danger">{{ "commun.delete" | trans }}</a>
+
+                </td>
+            {% endif %}  
+        </tr>
+        {% if is_granted('ROLE_ADMIN') %}
+           
+            <tr>
+                {% if entity.accordBUM == 1 %}
+                    <td>
+                        <a class="btn info disabled">
+                            {{ "detailcommande.accord" | trans }}
+                        </a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a href="{{ path('detailcommande_accord', { 'id': entity.id }) }}" class="btn info">
+                            {{ "detailcommande.accord" | trans }}
+                        </a>
+                    </td>
+                {% endif %}
+                {% if entity.lettrage == 1 %}
+                    <td>
+                        <a class="btn info disabled">
+                            {{ "detailcommande.lettering" | trans }}
+                        </a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a href="{{ path('detailcommande_lettrage', { 'id': entity.id }) }}" class="btn info">
+                            {{ "detailcommande.lettering" | trans }}
+                        </a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endif %}
+        <tr>
+            {% if entity.type == 'DA' %}
+                <td colspan="2">
+                    <a class="btn info disabled">
+                        {{ "detailcommande.print" | trans }}
+                    </a>
+                </td>
+            {% else %}
+                <td colspan="2">
+                    <a href="{{ path('detailcommande_print', { 'id': entity.id }) }}" class="btn info" target="_blank">
+                        {{ "detailcommande.print" | trans }}
+                    </a>
+                </td>
+            {% endif %}
+        </tr>
+    </table>
+{% endblock %}

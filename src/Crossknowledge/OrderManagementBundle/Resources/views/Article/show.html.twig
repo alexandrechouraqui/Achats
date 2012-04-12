@@ -1,0 +1,62 @@
+{% extends "CrossknowledgeOrderManagementBundle:Article:layoutArticle.html.twig" %}
+
+{% block body %}
+    <h2>{{ "article.article" | trans}}</h2>
+
+    <table class="zebra-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ "article.code" | trans}}</th>
+                <td>{{ entity.codeArticle }}</td>
+            </tr>
+            <tr>
+                <th>{{ "article.designation" | trans}}</th>
+                <td>{{ entity.typeArticle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('article') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        {% if is_granted('ROLE_ADMIN') %}
+            <tr>
+                <td>
+                    <a href="{{ path('article_edit', { 'id': entity.id }) }}" class="btn info">
+                        {{ "commun.edit" | trans}}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
+                        {{ form_widget(delete_form) }}
+                            <button type="submit" class="btn danger">{{ "commun.delete" | trans}}</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>
+                    <a class="btn info opener1">
+                        {{ "commun.edit" | trans}}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn danger opener1">{{ "commun.delete" | trans}}</a>
+                </td>
+            </tr>
+        {% endif %}
+    </table>
+{% endblock %}

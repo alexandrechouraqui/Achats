@@ -1,0 +1,23 @@
+Bonjour {{ manager.username }},
+
+Une nouvelle demande d'achat a été créée par {{ app.user.username }}.
+
+Vous pouvez consulter l'ensemble des demandes d'achat qui vous sont assignées en suivant ce lien : 
+http://achats.crossknowledge.com/crossknowledge/detailcommande/showassignedto
+
+
+Détail de la demande d'achat : 
+
+Business unit : {{ entity.BU }}
+Fournisseur : {{ entity.commande.fournisseur }}
+Article : {{ entity.article }}
+Désignation : {{ entity.designation }}
+Client : {{ entity.client}}
+Date de livraison : {{ entity.dateLivraison|date('Y-m-d') }}
+Quantité : {{ entity.quantite }}
+Prix HT : {{ entity.prixHT }} €
+TVA : {{ entity.tva }} %
+Prix TTC : {{ entity.prixTTC }} €
+
+
+

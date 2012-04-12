@@ -1,0 +1,36 @@
+tarif:
+    pattern:  /
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:index" }
+
+tarif_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:show" }
+
+tarif_new:
+    pattern:  /new
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:new" }
+
+tarif_create:
+    pattern:  /create
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:create" }
+    requirements: { _method: post }
+
+tarif_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:edit" }
+
+tarif_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:update" }
+    requirements: { _method: post }
+
+tarif_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Tarif:delete" }
+    requirements: { _method: post }
+    
+tarif_recherche_devise:
+    pattern: /tarif/recherchedevise
+    defaults: { _controller: CrossknowledgeOrderManagementBundle:Tarif:rechercheDevise }
+    requirements:
+      _method: POST

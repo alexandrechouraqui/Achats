@@ -1,0 +1,57 @@
+{% extends "CrossknowledgeOrderManagementBundle:Tarif:layoutTarif.html.twig" %}
+
+{% block body %}
+    <h2>{{ "tarif.modify" | trans }}</h2>
+
+    <form action="{{ path('tarif_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {#{ form_widget(edit_form) }#}
+        <table>
+            <tbody>
+                <tr>
+                        <td>{{form_label(edit_form.fournisseur) }}</td>
+                        <td>{{form_widget(edit_form.fournisseur)}}</td>
+                </tr>
+                <tr>
+                        <td>{{form_label(edit_form.article) }}</td>
+                        <td>{{form_widget(edit_form.article)}}</td>
+                </tr>
+                <tr>
+                        <td>{{form_label(edit_form.prix) }}</td>
+                        <td>{{form_widget(edit_form.prix)}} </td>
+                </tr>
+                <tr>
+                        <td>{{form_label(edit_form.ancienPrix) }}</td>
+                        <td>{{form_widget(edit_form.ancienPrix)}}</td>
+                </tr>
+                <tr>
+                        <td>{{form_label(edit_form.tva) }}</td>
+                        <td>{{form_widget(edit_form.tva)}} %</td>
+                </tr>
+                {{ form_rest(edit_form) }}
+                <tr>
+                            <td style="text-align:center;" colspan="2">
+                                    <button type="submit" class="btn primary">{{ "commun.save" | trans }}</button>
+                            </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <table class="">
+        <tr>
+            <td>
+                <a href="{{ path('tarif') }}" class="btn info">
+                    {{ "commun.backtolist" | trans }}
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="{{ path('tarif_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                        <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

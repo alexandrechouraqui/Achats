@@ -1,0 +1,7 @@
+parameters:
+#    crossknowledge_order_management.example.class: Crossknowledge\OrderManagementBundle\Example
+
+services:
+#    crossknowledge_order_management.example:
+#        class: %crossknowledge_order_management.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,108 @@
+##Layout
+menu:
+  home: Home
+  item: Item
+  supplier: Supplier
+  prices: Tariff
+  order: Order
+  profil: Profile
+
+login: Log in
+logout: Log out
+logas: Log in as
+
+##Homepage
+home:
+  title: Welcome on the order management tool
+  assignedto:  To see all the purchase orders assigned to you
+  assignedtoerror: No purchase orders are assigned to you at this time
+  clickhere: click here
+  
+##Commun
+commun:
+  backtolist: Back to the list
+  edit: Edit
+  delete: Delete
+  create: Create
+  see: See
+  seedetail: See details
+  save: Save
+  
+##Article
+article:
+  article: Item
+  list: List of available items
+  additem: Add a new item
+  modifyitem: Edit an item
+  code: Item code
+  designation: Designation
+
+##Commande
+commande:
+  type: Order type
+  designation: Designation
+  fournisseur: Supplier
+  modifycommande: Modify this order
+  list: List of order
+  add: Add a new order
+  
+##DetailCommande
+detailcommande:
+  type: Type
+  service: Service
+  commande: Order
+  article: Item
+  designation: Designation
+  client : Customer
+  lettering: Lettering
+  quantite: Qty
+  datelivraison: Delivery Date
+  remarque: Remark
+  accord: Manager approval
+  prixht: Price
+  prixttc: Price
+  tva: VAT
+  creepar: Created by
+  assignedto: Assigned to
+  list: Detail of the order number
+  modify: Edit this line
+  add : Add a new line to the order number
+  print : Print
+  
+##Fournisseur
+fournisseur:
+  fournisseur: Supplier
+  type: Supplier type
+  code: Supplier code
+  contact: Contact
+  phone: Phone number
+  mail: E-mail
+  address: Billing address
+  CAorder: Ordered turnover
+  CAlettre: Lettering turnover
+  raisonsociale: Company name
+  devise: Currency
+  modify: Edit this supplier
+  list: List of suppliers
+  add: Add a new supplier
+  
+##Tarif
+tarif:
+  tarif: Tariff
+  fournisseur: Supplier
+  article: Item
+  prix: Unit price
+  ancienprix: Old unit price
+  tva: VAT
+  list: List of prices
+  modify: Edit this tariff
+  add: Add a new tariff
+  
+  ##User
+  user:
+     profile:
+        show.username: Login
+        show.email: E-mail
+        show.ismanager: Manager
+        show.budget: Budget
+        show.budgetrestant: Remaining budget

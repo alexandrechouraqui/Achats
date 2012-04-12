@@ -1,0 +1,11 @@
+services:
+  io_tcpdf:
+    class:  Io\TcpdfBundle\Helper\Tcpdf
+    arguments:
+      orientation: P
+      unit:        mm
+      format:      A4
+      unicode:     true
+      encoding:    UTF-8
+      diskcache:   false
+      pdfa:        false

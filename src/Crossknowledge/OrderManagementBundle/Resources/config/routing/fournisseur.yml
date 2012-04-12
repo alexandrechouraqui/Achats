@@ -1,0 +1,30 @@
+fournisseur:
+    pattern:  /
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:index" }
+
+fournisseur_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:show" }
+
+fournisseur_new:
+    pattern:  /new
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:new" }
+
+fournisseur_create:
+    pattern:  /create
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:create" }
+    requirements: { _method: post }
+
+fournisseur_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:edit" }
+
+fournisseur_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:update" }
+    requirements: { _method: post }
+
+fournisseur_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:delete" }
+    requirements: { _method: post }

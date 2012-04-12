@@ -1,0 +1,47 @@
+{% extends "CrossknowledgeOrderManagementBundle:Commande:layoutCommande.html.twig" %}
+
+{% block body %}
+<h2>{{ "commande.list" | trans}}</h2>
+<table class="zebra-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>OA/DA</th>
+            <th>{{ "commande.designation" | trans}}</th>
+            <th>{{ "commande.type" | trans}}</th>
+            <th>{{ "commande.fournisseur" | trans}}</th>
+            <th colspan="2" style="text-align: center;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('commande_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.typeOA }}</td>
+                <td>{{ entity.designation }}</td>
+                <td>{{ entity.typeCommande }}</td>
+                <td>{{ entity.fournisseur.raisonSociale }}</td>
+                <td>
+                    <a href="{{ path('commande_show', { 'id': entity.id }) }}">{{ "commun.see" | trans}}</a>
+                </td>
+                <td>
+                    <a href="{{ path('commande_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                </td>
+                <td>
+                    <a href="{{ path('detailcommande_detail', { 'id': entity.id }) }}">{{ "commun.seedetail" | trans}}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+        <tr>
+            <td>
+                <a href="{{ path('commande_new') }}" class="btn primary">
+                    {{ "commande.add" | trans }}
+                </a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}
