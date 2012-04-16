@@ -49,7 +49,7 @@ commande:
 ##DetailCommande
 detailcommande:
   type: Type
-  service: Service
+  service: Unit
   commande: Order
   article: Item
   designation: Designation
@@ -57,10 +57,10 @@ detailcommande:
   lettering: Lettering
   quantite: Qty
   datelivraison: Delivery Date
-  remarque: Remark
+  remarque: Comment
   accord: Manager approval
   prixht: Price
-  prixttc: Price
+  prixttc: Price + VAT
   tva: VAT
   creepar: Created by
   assignedto: Assigned to
@@ -68,6 +68,7 @@ detailcommande:
   modify: Edit this line
   add : Add a new line to the order number
   print : Print
+  listassign : List of order assigned to
   
 ##Fournisseur
 fournisseur:
@@ -79,8 +80,8 @@ fournisseur:
   mail: E-mail
   address: Billing address
   CAorder: Ordered turnover
-  CAlettre: Lettering turnover
-  raisonsociale: Company name
+  CAlettre: Lettered turnover
+  raisonsociale: Supplier name
   devise: Currency
   modify: Edit this supplier
   list: List of suppliers

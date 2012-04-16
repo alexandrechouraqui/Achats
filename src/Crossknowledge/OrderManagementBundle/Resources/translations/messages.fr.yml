@@ -68,6 +68,7 @@ detailcommande:
   modify: Modifier la ligne
   add : Ajouter une ligne à la commande numéro
   print : Imprimer
+  listassign : Liste des commandes assignées à 
   
 ##Fournisseur
 fournisseur:

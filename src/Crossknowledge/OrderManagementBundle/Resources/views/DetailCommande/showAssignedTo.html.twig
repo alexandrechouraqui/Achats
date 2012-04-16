@@ -1,7 +1,7 @@
 {# empty Twig template #}{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
 
 {% block body %}
-    <h2>Liste des commandes assignées à {{ app.user.username }}</h2>
+    <h2>{{ "detailcommande.listassign" | trans }} : {{ app.user.username }}</h2>
 
     {% if entities == null %}
         <p>{{ "home.assignedtoerror" | trans }}</p>
