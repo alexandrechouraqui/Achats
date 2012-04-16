@@ -17,7 +17,7 @@
                 </tr>
                 {{ form_rest(edit_form) }}
                 <tr>
-                    <td><button type="submit" class="btn primary">Sauver</button></td>
+                    <td colspan="2" style="text-align: center;"><button type="submit" class="btn primary">Sauver</button></td>
                 </tr>
             </tbody>
         </table>
@@ -25,13 +25,11 @@
 
     <table class="">
         <tr>
-            <td>
+            <td style="width: 120px;">
                 <a href="{{ path('article') }}" class="btn info">
                     {{ "commun.backtolist" | trans}}
                 </a>
             </td>        
-        </tr>
-        <tr>
             <td>
                 <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}

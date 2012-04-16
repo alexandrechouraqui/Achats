@@ -55,7 +55,7 @@
                 </tr>
                 {{ form_rest(edit_form) }}
                 <tr>
-                    <td colspan="2" style="text-align: center;"><button type="submit" class="btn primary" >{{ "commun.save" | trans }}</button></td>
+                    <td colspan="4" style="text-align: center;"><button type="submit" class="btn primary" >{{ "commun.save" | trans }}</button></td>
                 </tr>
             </tbody>
         </table>
@@ -63,14 +63,12 @@
 
     <table class="">
         <tr>
-            <td>
+            <td style="width: 120px;">
                 <a href="{{ path('detailcommande_detail', { 'id' : entity.commande.id }) }}" class="btn primary">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
-        </tr>
-        <tr>
-            </td>
+            <td>
                 <form action="{{ path('detailcommande_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
                     <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>

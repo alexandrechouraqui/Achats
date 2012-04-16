@@ -1,3 +1,5 @@
+NE PAS REPONDRE A CE MAIL
+
 Bonjour {{ manager.username }},
 
 Votre demande d'achat a été validée par votre responsable.
@@ -6,7 +8,6 @@ Vous trouverez ci-joint un bon bon de commande.
 
 Détail de la commande : 
 
-Type : {{ entity.type }}
 Business unit : {{ entity.BU }}
 Désignation : {{ entity.designation }}
 Date de livraison : {{ entity.dateLivraison|date('Y-m-d') }}
@@ -15,5 +16,6 @@ Prix HT : {{ entity.prixHT }} €
 TVA : {{ entity.tva }} %
 Prix TTC : {{ entity.prixTTC }} €
 Accord du responsable : {% if entity.accordBUM == 1%}Yes{% else %}No{% endif %}
+Responsable : {{ entity.assignedTo }}
 
 

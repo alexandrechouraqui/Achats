@@ -60,13 +60,11 @@
 
     <table class="record_actions">
         <tr>
-            <td>
+            <td style="width: 120px">
                 <a href="{{ path('fournisseur') }}" class="btn info">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
-        </tr>
-        <tr>
             <td>
                 <form action="{{ path('fournisseur_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}

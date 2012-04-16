@@ -29,13 +29,11 @@
 
     <table class="">
         <tr>
-            <td>
+            <td style="width: 120px;">
                 <a href="{{ path('commande') }}" class="btn info">
                     {{ "commun.backtolist" | trans}}
                 </a>
             </td>
-        </tr>
-        <tr>
             <td>
                 <form action="{{ path('commande_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}

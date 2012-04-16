@@ -20,43 +20,35 @@
         </tbody>
     </table>
 
-    <table class="">
+    <table class="" style="width: 450px;">
         <tr>
             <td>
                 <a href="{{ path('article') }}" class="btn info">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
-        </tr>
         {% if is_granted('ROLE_ADMIN') %}
-            <tr>
-                <td>
-                    <a href="{{ path('article_edit', { 'id': entity.id }) }}" class="btn info">
-                        {{ "commun.edit" | trans}}
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
-                        {{ form_widget(delete_form) }}
-                            <button type="submit" class="btn danger">{{ "commun.delete" | trans}}</button>
-                    </form>
-                </td>
-            </tr>
+            <td>
+                <a href="{{ path('article_edit', { 'id': entity.id }) }}" class="btn info">
+                    {{ "commun.edit" | trans}}
+                </a>
+            </td>
+            <td>
+                <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                        <button type="submit" class="btn danger">{{ "commun.delete" | trans}}</button>
+                </form>
+            </td>
         {% else %}
-            <tr>
-                <td>
-                    <a class="btn info opener1">
-                        {{ "commun.edit" | trans}}
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a class="btn danger opener1">{{ "commun.delete" | trans}}</a>
-                </td>
-            </tr>
+            <td>
+                <a class="btn info opener1">
+                    {{ "commun.edit" | trans}}
+                </a>
+            </td>>
+            <td>
+                <a class="btn danger opener1">{{ "commun.delete" | trans}}</a>
+            </td>
+        </tr>
         {% endif %}
     </table>
 {% endblock %}
