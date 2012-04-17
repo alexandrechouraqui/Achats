@@ -64,6 +64,7 @@
     <script src="{{ asset('bundles/crossknowledgeordermanagement/js/bootstrap-tabs.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/crossknowledgeordermanagement/js/bootstrap-dropdown.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/crossknowledgeordermanagement/js/datepicker.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/crossknowledgeordermanagement/js/jquery.tablesorter.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         //Gestion de l'affichage du calendrier
 	$(function() {
@@ -75,6 +76,12 @@
             $('.tabs').tabs()
         });
         
+        //initialisation du tri dans les tableaux
+        $(document).ready(function() 
+        { 
+            $("#table").tablesorter(); 
+        });
+     
         //Gestion des pop-up en cas de droits insuffisants
         $(document).ready(function() {
             var $dialog = $('<div></div>')
@@ -142,5 +149,6 @@
             });
             return false;
         });
+        
     </script>
 {% endblock %}

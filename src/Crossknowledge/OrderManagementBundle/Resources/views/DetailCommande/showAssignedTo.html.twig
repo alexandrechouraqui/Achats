@@ -6,7 +6,7 @@
     {% if entities == null %}
         <p>{{ "home.assignedtoerror" | trans }}</p>
     {% else %}
-    <table class="zebra-striped">
+    <table class="zebra-striped tablesorter" id="table">
         <thead>
             <tr><th>{{ "detailcommande.type" | trans }}</th>
                 <th>{{ "detailcommande.service" | trans }}</th>

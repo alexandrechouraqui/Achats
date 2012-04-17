@@ -61,11 +61,19 @@
                 <script src="{{ asset('bundles/crossknowledgeordermanagement/js/jquery-ui-1.8.18.custom.min.js') }}" type="text/javascript"></script>
                 <script src="{{ asset('bundles/crossknowledgeordermanagement/js/bootstrap-tabs.js') }}" type="text/javascript"></script>
                 <script src="{{ asset('bundles/crossknowledgeordermanagement/js/bootstrap-dropdown.js') }}" type="text/javascript"></script>
+                <script src="{{ asset('bundles/crossknowledgeordermanagement/js/jquery.tablesorter.js') }}" type="text/javascript"></script>
                 <script type="text/javascript">
                     
                     $(function () {
                         $('.tabs').tabs()
                     });
+                    
+                    //initialisation du tri dans les tableaux
+                    $(document).ready(function() 
+                    { 
+                        $("#table").tablesorter(); 
+                    });
+                    
                     $(document).ready(function() {
                         var $dialog = $('<div></div>')
                                 .html('Vous n\'avez pas les droits suffisants pour effectuer cette action.')
