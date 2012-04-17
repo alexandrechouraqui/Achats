@@ -1,21 +1,21 @@
-NE PAS REPONDRE A CE MAIL
+NE PAS REPONDRE A CE MAIL<br><br>
 
-Bonjour {{ manager.username }},
+Bonjour {{ manager.username }},<br>
 
-Votre demande d'achat a été validée par votre responsable.
-Vous trouverez ci-joint un bon bon de commande.
+Votre demande d'achat a été validée par votre responsable.<br>
+Vous trouverez ci-joint un bon de commande.<br>
 
 
-Détail de la commande : 
+Détail de la commande : <br><br>
 
-Business unit : {{ entity.BU }}
-Désignation : {{ entity.designation }}
-Date de livraison : {{ entity.dateLivraison|date('Y-m-d') }}
-Quantité : {{ entity.quantite }}
-Prix HT : {{ entity.prixHT }} €
-TVA : {{ entity.tva }} %
-Prix TTC : {{ entity.prixTTC }} €
-Accord du responsable : {% if entity.accordBUM == 1%}Yes{% else %}No{% endif %}
-Responsable : {{ entity.assignedTo }}
+Business unit : {{ entity.BU }}<br>
+Désignation : {{ entity.designation }}<br>
+Date de livraison : {{ entity.dateLivraison|date('Y-m-d') }}<br>
+Quantité : {{ entity.quantite }}<br>
+Prix HT : {{ entity.prixHT }} €<br>
+TVA : {{ entity.tva }} %<br>
+Prix TTC : {{ entity.prixTTC }} €<br>
+Accord du responsable : {% if entity.accordBUM == 1%}Yes{% else %}No{% endif %}<br>
+Responsable : {{ entity.assignedTo }}<br>
 
 

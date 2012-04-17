@@ -61,9 +61,15 @@
                         <a class="opener1"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
                     </td>
                 {% endif %}
-                <td>
-                    <a target="_blank" href="{{ path('detailcommande_print', { 'id': entity.id }) }}"><img style="height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
-                </td>
+                {% if entity.type == 'OA' %}
+                    <td>
+                        <a target="_blank" href="{{ path('detailcommande_print', { 'id': entity.id }) }}"><img style="height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a class="opener2" target="" href=""><img style="height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
+                    </td>
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>

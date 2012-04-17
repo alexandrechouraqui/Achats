@@ -89,6 +89,20 @@
                     return false;
             });
         });
+        //Gestion des pop-up en cas de droits insuffisants
+        $(document).ready(function() {
+            var $dialog = $('<div></div>')
+                    .html('Vous ne pouvez pas imprimer une DA')
+                    .dialog({
+                            autoOpen: false,
+                            title: 'Avertissement'
+                    });
+            $('.opener2').click(function() {
+                    $dialog.dialog('open');
+                    // prevent the default action, e.g., following a link
+                    return false;
+            });
+        });
         
         //Requête AJAX pour récupérer le prix d'un article dans le formulaire d'ajout de ligne de commande
         $('#crossknowledge_ordermanagementbundle_detailcommandetype_article').change(function (){ 

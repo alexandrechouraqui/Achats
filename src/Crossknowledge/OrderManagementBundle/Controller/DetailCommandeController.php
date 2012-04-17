@@ -193,7 +193,7 @@ class DetailCommandeController extends Controller {
                         ->setFrom('achats@crossknowledge.com')
                         ->setTo($managerMail)
                         ->setCc($recipient)
-                        ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailDA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)))
+                        ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailDA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)), 'text/html')
                 ;
                 $this->get('mailer')->send($message);
             }
@@ -202,11 +202,11 @@ class DetailCommandeController extends Controller {
                 $managerMail = $manager->getEmail();
                 $recipient = $user->getEmail();
                 $message = \Swift_Message::newInstance()
-                        ->setSubject('Validation de votre demande d\'achats')
+                        ->setSubject('Validation de votre demande d\'achat')
                         ->setFrom('achats@crossknowledge.com')
                         ->setTo($managerMail)
                         ->setCc($recipient)
-                        ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailOA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)))
+                        ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailOA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)), 'text/html')
                 ;
                 $this->get('mailer')->send($message);
             }
@@ -356,11 +356,11 @@ class DetailCommandeController extends Controller {
                 $managerMail = $manager->getEmail();
                 
                 $message = \Swift_Message::newInstance()
-                        ->setSubject('Validation de votre demande d\'achats')
+                        ->setSubject('Validation de votre demande d\'achat')
                         ->setFrom('achats@crossknowledge.com')
                         ->setTo($entity->getCreatedBy()->getEmail())
                         ->setCc($managerMail)
-                        ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailOA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)))
+                        ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailOA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)), 'text/html')
                         ->attach($attachement)
                 ;
                 $this->get('mailer')->send($message);
@@ -505,11 +505,11 @@ class DetailCommandeController extends Controller {
             $managerMail = $manager->getEmail();
             
             $message = \Swift_Message::newInstance()
-                    ->setSubject('Validation de votre demande d\'achats')
+                    ->setSubject('Validation de votre demande d\'achat')
                     ->setFrom('achats@crossknowledge.com')
                     ->setTo($entity->getCreatedBy()->getEmail())
                     ->setCc($managerMail)
-                    ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailOA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)))
+                    ->setBody($this->renderView('CrossknowledgeOrderManagementBundle:DetailCommande:emailOA.txt.twig', array('name' => $username, 'entity' => $entity, 'manager' => $manager)), 'text/html')
                     ->attach($attachement)
             ;
             $this->get('mailer')->send($message);
