@@ -160,7 +160,7 @@ class DetailCommandeController extends Controller {
             }
             $em->persist($fournisseur);
 
-            /* Mise à jour du budget de la BU */
+            /* Mise à jour du budget du responsable */
             $commande = $entity->getCommande();
             if ($commande->getTypeCommande() == 'Budget') {
                 $manager = $entity->getassignedTo();
