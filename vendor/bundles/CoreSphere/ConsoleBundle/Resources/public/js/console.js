@@ -24,9 +24,7 @@ window.CoreSphereConsole = (function (window) {
 
                     return '';
                 }
-            },
-
-            'active_suggestion_class' : 'active'
+            }
         },
 
         helpers = {
@@ -74,13 +72,13 @@ window.CoreSphereConsole = (function (window) {
         },
 
         keys = {
-            'tab' : 9,
-            'enter' : 13,
+            'tab' :     9,
+            'enter' :  13,
             'escape' : 27,
-            'left' : 37,
-            'up' : 38,
-            'right' : 39,
-            'down': 40
+            'left' :   37,
+            'up' :     38,
+            'right' :  39,
+            'down':    40
         },
 
         Console = function (base_element, options) {
@@ -141,9 +139,9 @@ window.CoreSphereConsole = (function (window) {
 
             .delegate('.console_suggestions li', 'mouseover.coresphere_console', function () {
                 var $this = $(this);
-
-                this_console.suggestion_box.find('.' + this.options.active_suggestion_class).removeClass(this.options.active_suggestion_class);
-                $this.addClass(this.options.active_suggestion_class);
+                
+                this_console.suggestion_box.find('.active').removeClass('active');
+                $this.addClass('active');
                 this_console.active_suggestion = $this.text();
 
                 this_console.focus();
@@ -233,13 +231,13 @@ window.CoreSphereConsole = (function (window) {
                 } else if (event.which === keys.up || event.which === keys.down) {
 
                     current_suggestions = this_console.suggestion_box.find('li');
-                    active_suggestion = current_suggestions.filter('.' + this.options.active_suggestion_class);
+                    active_suggestion = current_suggestions.filter('.active');
 
                     if (event.which === keys.up) {
                         if (current_suggestions.size()) {
-                            next = active_suggestion.size() ? active_suggestion.removeClass(this.options.active_suggestion_class).prev() : current_suggestions.last();
+                            next = active_suggestion.size() ? active_suggestion.removeClass('active').prev() : current_suggestions.last();
                             next = next.size() ? next : current_suggestions.last();
-                            this_console.active_suggestion = next.addClass(this.options.active_suggestion_class).text();
+                            this_console.active_suggestion = next.addClass('active').text();
                         } else {
                             this_console.history_position -= 1;
                             if (this_console.history_position < 0) {
@@ -252,9 +250,9 @@ window.CoreSphereConsole = (function (window) {
                         // DOWN
 
                         if (current_suggestions.size()) {
-                            next = active_suggestion.size() ? active_suggestion.removeClass(this.options.active_suggestion_class).next() : current_suggestions.first();
+                            next = active_suggestion.size() ? active_suggestion.removeClass('active').next() : current_suggestions.first();
                             next = next.size() ? next : current_suggestions.first();
-                            this_console.active_suggestion = next.addClass(this.options.active_suggestion_class).text();
+                            this_console.active_suggestion = next.addClass('active').text();
                         } else {
                             this_console.history_position += 1;
                             if (this_console.history_position >= this_console.history.length) {

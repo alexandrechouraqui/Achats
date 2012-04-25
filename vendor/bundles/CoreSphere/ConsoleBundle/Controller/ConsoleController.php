@@ -35,7 +35,7 @@ class ConsoleController extends Controller
         return $this->render('CoreSphereConsoleBundle:Console:index.html.twig', array(
             'working_dir' => getcwd(),
             'environment' => $kernel->getEnvironment(),
-            'commands' => $application->all(),
+            'commands'    => $application->all(),
         ));
     }
 
@@ -63,16 +63,19 @@ class ConsoleController extends Controller
         $formatter->setStyle('question', new HtmlOutputFormatterStyle('black', 'cyan'));
         $output->setFormatter(new HtmlOutputFormatterDecorator($formatter));
 
-        $env = $this;
-        $debug = true;
-
         $application = $this->getApplication($input);
         $application->setAutoExit(FALSE);
+
+        // Some commands (i.e. doctrine:query:dql) dump things out instead of returning a value
+        // Looks like a hack, but no way to do this differently
+        ob_start();
         $application->run($input, $output);
+        $dumped = ob_get_contents(); // We catch it and concatenate it to the output
+        ob_end_clean();
 
         return $this->render('CoreSphereConsoleBundle:Console:result.' . $_format . '.twig', array(
-            'input' => $command,
-            'output' => $output->getBuffer(),
+            'input'       => $command,
+            'output'      => $output->getBuffer().$dumped, // Theorically, a command doesn't return and dump at the same time
             'environment' => $this->getKernel($input)->getEnvironment(),
         ));
     }
@@ -80,7 +83,6 @@ class ConsoleController extends Controller
     protected function getApplication($input = NULL)
     {
         $kernel = $this->getKernel($input);
-
 
         return new Application($kernel);
     }

@@ -2,11 +2,6 @@ CrossknowledgeOrderManagementBundle:
     resource: "@CrossknowledgeOrderManagementBundle/Resources/config/routing.yml"
     prefix:   /
 
-# Internal routing configuration to handle ESI
-#_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal
-
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

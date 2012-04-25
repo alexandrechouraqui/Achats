@@ -3,6 +3,8 @@ security.login.password : Password
 security.login.remember_me : Remember me
 security.login.submit : Login
 
+profile.show.firstname: First name
+profile.show.lastname: Last name
 profile.show.shortid : Short ID
 profile.show.ismanager: Manager
 profile.show.budget: Budget

@@ -1,6 +1,14 @@
 <div class="fos_user_user_show">
-    <h2>Profil de {{ user.username }}</h2>
+    <h2>Profil de {{ user.prenom }} {{ user.nom }}</h2>
     <table class="zebra-striped">
+        <tr>
+            <th>{{ 'profile.show.firstname' | trans({}, 'CrossknowledgeUserBundle') }}</th>
+            <td>{{ user.prenom }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.lastname' | trans({}, 'CrossknowledgeUserBundle') }}</th>
+            <td>{{ user.nom }}</td>
+        </tr>
         <tr>
             <th>{{ 'profile.show.username' | trans({}, 'FOSUserBundle') }}</th>
             <td>{{ user.username }}</td>

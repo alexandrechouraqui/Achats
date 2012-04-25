@@ -7,12 +7,14 @@ use FOS\UserBundle\Form\Type\ProfileFormType as BaseType;
 
 class ProfileFormType extends BaseType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildUserForm(FormBuilder $builder, array $options)
     {
-        parent::buildForm($builder, $options);
+        parent::buildUserForm($builder, $options);
 
         // add your custom field
         $builder
+            ->add('nom')
+            ->add('prenom')
             ->add('isManager')
             ->add('budget')
             ->add('budgetRestant')    

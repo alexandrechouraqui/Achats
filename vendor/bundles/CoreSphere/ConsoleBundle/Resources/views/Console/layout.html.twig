@@ -1,9 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends 'CoreSphereConsoleBundle::base.html.twig' %}
 
-{#
+{% block javascripts %}
+	{{ parent() }}
 
-{% block body %}
-    {% block content %}{% endblock %}
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+	<script>window.jQuery || document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"><\/script>')</script>
+	<script>window.jQuery || document.write('<script src="{{ asset('bundles/coresphereconsole/js/jquery-1.6.2.min.js') }}"><\/script>')</script>
 {% endblock %}
-
-#}

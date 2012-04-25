@@ -1,0 +1,6 @@
+services:
+    coresphere_console.toolbar:
+        class: CoreSphere\ConsoleBundle\Toolbar\ToolbarListener
+        arguments: [@templating.engine.twig]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse, priority: -128 }

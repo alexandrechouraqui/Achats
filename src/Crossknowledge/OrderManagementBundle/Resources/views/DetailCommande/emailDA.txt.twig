@@ -1,8 +1,8 @@
 NE PAS REPONDRE A CE MAIL<br><br>
 
-Bonjour {{ manager.username }},<br><br>
+Bonjour {{ manager.prenom }} {{ manager.nom }},<br><br>
 
-Une nouvelle demande d'achat a été créée par {{ app.user.username }}.<br><br>
+Une nouvelle demande d'achat a été créée par {{ app.user.prenom }} {{ app.user.nom }}.<br><br>
 
 Vous pouvez consulter l'ensemble des demandes d'achat qui vous sont assignées en suivant ce lien : <br>
 http://achats.crossknowledge.com/crossknowledge/detailcommande/showassignedto<br><br>
@@ -11,8 +11,7 @@ http://achats.crossknowledge.com/crossknowledge/detailcommande/showassignedto<br
 Détail de la demande d'achat : <br><br>
 
 Business unit : {{ entity.BU }}<br>
-Fournisseur : {{ entity.commande.fournisseur }}<br>
-Article : {{ entity.article }}<br>
+Fournisseur : {{ entity.commande.fournisseur.raisonSociale }}<br>
 Désignation : {{ entity.designation }}<br>
 Client : {{ entity.client}}<br>
 Date de livraison : {{ entity.dateLivraison|date('Y-m-d') }}<br>
@@ -20,6 +19,7 @@ Quantité : {{ entity.quantite }}<br>
 Prix HT : {{ entity.prixHT }} €<br>
 TVA : {{ entity.tva }} %<br>
 Prix TTC : {{ entity.prixTTC }} €<br>
+Remarques : {{ entity.remarque }}<br>
 
 
 

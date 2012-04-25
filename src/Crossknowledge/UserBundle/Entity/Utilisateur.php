@@ -20,7 +20,21 @@ class Utilisateur extends BaseUser
     protected $id;
     
     /**
-     * @var boolean $shortID
+     * @var string nom
+     *
+     * @ORM\Column(name="nom", type="string", nullable=true)
+     */
+    protected $nom;
+    
+    /**
+     * @var prenom $prenom
+     *
+     * @ORM\Column(name="prenom", type="string", nullable=true)
+     */
+    protected $prenom;
+    
+    /**
+     * @var string $shortID
      *
      * @ORM\Column(name="shortid", type="string", nullable=true)
      */
@@ -62,6 +76,42 @@ class Utilisateur extends BaseUser
     {
         parent::__construct();
         // your own logic
+    }
+    
+    /**
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+    
+    /**
+     *
+     * @param type $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+    
+    /**
+     *
+     * @return string 
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+    
+    /**
+     *
+     * @param type $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
     }
     
     /**

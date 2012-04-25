@@ -45,28 +45,14 @@ Installation
             return $bundles;
         }
 
- 5. Add the stylesheets block to your template file
+ 5. Run the assets:install command to install the css and js files (check if you can make use of --symlink option first)
 
-        <!-- /app/Resources/views/base.html.twig -->
+        ./app/console assets:install --symlink web
 
-        {% block stylesheets %}{% endblock %}
-
- 6. Add the javascripts block to your template file
-
-        <!-- /app/Resources/views/base.html.twig -->
-
-        {% block javascripts %}{% endblock %}
-
- 7. Include jQuery
-
-        <!-- /app/Resources/views/base.html.twig -->
-
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryuery/1.6.1/jquery.min.js"></script>
-
-
- 8. run the assets:install command to install the css and js files
-
-        ./app/console assets:install web
+Usage
+-----
+The default route is /console, reach it and enjoy!
+You can also notice a little console button on the right of the toolbar, click and enjoy!
 
 Tips
 ----
@@ -82,16 +68,14 @@ Preview
 Dependencies
 ------------
 
- * jQuery
  * Twig
- * AsseticBundle
 
 Compatibility
 -------------
 
 Tested with:
 
- * Chrome
+ * Chrome 16
  * Firefox 4
  * Opera 11
  * Safari 5
@@ -100,5 +84,4 @@ Todo
 ----
 
  * Write Javascript tests
- * Add console as "pop up" to web developer toolbar
  * Figure out how to allow interactive mode (possible? extreme hacky?)

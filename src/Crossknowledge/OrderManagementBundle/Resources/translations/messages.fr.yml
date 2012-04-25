@@ -102,6 +102,8 @@ tarif:
   ##User
   user:
      profile:
+        show.firstname: Prénom
+        show.lastname: Nom
         show.username: Identifiant
         show.email: E-mail
         show.ismanager: Manager

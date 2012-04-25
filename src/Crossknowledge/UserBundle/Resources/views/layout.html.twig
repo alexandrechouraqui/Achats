@@ -27,12 +27,13 @@
                     <div class="span-one-third">
                         <br>
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            {{ "logas" | trans }} {{ app.user.username }} - <a href="{{ path('fos_user_security_logout') }}" class="btn small primary">{{"logout" | trans }}</a>
+                            {{ "logas" | trans }} {{ app.user.prenom }} {{ app.user.nom }} <a href="{{ path('fos_user_security_logout') }}" class="btn small primary">{{"logout" | trans }}</a>
                         {% else %}
                             <a href="{{ path('fos_user_security_login') }}" class="btn small primary">{{ "login" | trans }}</a>
                         {% endif %}
                     </div>
                     <div class="span-one-third">
+                        <br>
                         <a href="{{ path('language', {'langue' : 'fr'}) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/FR.png') }}" alt="fr"/></a>
                         <a href="{{ path('language', {'langue' : 'en'}) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/EN.png') }}" alt="en"/></a>
                     </div>
