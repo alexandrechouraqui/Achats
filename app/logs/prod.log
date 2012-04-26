@@ -43,3 +43,8 @@
 [2012-04-25 09:11:53] security.DEBUG: Username "achouraqui" was reloaded from user provider. [] []
 [2012-04-25 09:11:53] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /favicon.ico" (uncaught exception) at C:\wamp\www\Achats_new\app\cache\prod\classes.php line 4564 [] []
 [2012-04-25 09:11:54] security.DEBUG: Write SecurityContext in the session [] []
+[2012-04-26 07:52:54] security.DEBUG: Read SecurityContext from the session [] []
+[2012-04-26 07:52:54] security.DEBUG: Reloading user from user provider. [] []
+[2012-04-26 07:52:54] security.DEBUG: Username "achouraqui" was reloaded from user provider. [] []
+[2012-04-26 07:52:54] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /app-dev.php" (uncaught exception) at C:\wamp\www\Achats_new\app\cache\prod\classes.php line 4564 [] []
+[2012-04-26 07:52:54] security.DEBUG: Write SecurityContext in the session [] []

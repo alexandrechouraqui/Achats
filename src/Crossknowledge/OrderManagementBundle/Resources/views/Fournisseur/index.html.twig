@@ -37,12 +37,12 @@
                 </td>
                 {% if is_granted('ROLE_ADMIN')%}
                     <td>
-                        <a href="{{ path('fournisseur_edit', { 'id': entity.id }) }}"><img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                        <a href="{{ path('fournisseur_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
                     </td>
                 {% else %}
                     <td>
                         <a class="opener1" class="">
-                            <img src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/>
+                            <img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/>
                         </a>
                     </td>
                 {% endif %}

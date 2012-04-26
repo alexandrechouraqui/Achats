@@ -35,4 +35,15 @@ class DetailCommandeRepository extends EntityRepository
         return $query->getResult();
     }
     
+    public function findByLettrage()
+    {
+        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder->where('c.lettrage != :lettrage AND c.type = :type' )
+                     ->setParameters(array('lettrage' => '1', 'type' => 'OA'))
+                     ;
+        
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
+    
 }

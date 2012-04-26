@@ -3,10 +3,14 @@
 {% block body %}
     <h2>{{ "home.title" | trans }}</h2>
     {% if is_granted('ROLE_MANAGER') %}
-        <br>
-        <br>
-        <br>
+    <div class="validation">
+        <h4>Validation des demandes d'achat</h4>
         <p>{{ "home.assignedto" | trans }} <a href="{{ path('detailcommande_showassignedto') }}">{{ "home.clickhere" | trans }}</a></p>
+    </div>  
+    <div class="lettrage">
+        <h4>Lettrages des ordres d'achat</h4>
+        <p>{{ "home.lettrage" | trans }} <a href="{{ path('detailcommande_showlettrage') }}">{{ "home.clickhere" | trans }}</a></p>
+    </div>
     {% endif %}
 {% endblock %}
 

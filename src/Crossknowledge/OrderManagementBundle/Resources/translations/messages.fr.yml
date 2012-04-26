@@ -15,7 +15,9 @@ logas: Connecté en tant que
 home:
   title: Bienvenue sur l'outil de gestion des demandes d'achat
   assignedto: Pour voir si vous avez des demandes d'achat qui vous sont assignées
+  lettrage: Pour voir les ordres d'achat en attente de lettrage
   assignedtoerror: Aucune demande d'achat ne vous est assignée pour le moment
+  lettrageerror: Aucun ordre d'achat nécessite un lettrage.
   clickhere: cliquez ici
   
 ##Commun
@@ -69,6 +71,7 @@ detailcommande:
   add : Ajouter une ligne à la commande numéro
   print : Imprimer
   listassign : Liste des commandes assignées à 
+  listlettrage : Liste des commandes en attente de lettrage 
   
 ##Fournisseur
 fournisseur:

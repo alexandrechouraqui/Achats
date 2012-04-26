@@ -1,10 +1,10 @@
 {# empty Twig template #}{% extends "CrossknowledgeOrderManagementBundle:DetailCommande:layoutDetailCommande.html.twig" %}
 
 {% block body %}
-    <h2>{{ "detailcommande.listassign" | trans }} : {{ app.user.prenom }} {{ app.user.nom }}</h2>
+    <h2>{{ "detailcommande.listlettrage" | trans }}</h2>
 
     {% if entities == null %}
-        <p>{{ "home.assignedtoerror" | trans }}</p>
+        <p>{{ "home.lettrageerror" | trans }}</p>
         <table class="">
             <tr>
                 <td>
@@ -48,7 +48,7 @@
                     <td>
                         <a href="{{ path('detailcommande_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
                     </td>
-                    {% if app.user.username == entity.createdBy || is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN') %}
                         <td>
                             <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
                         </td>

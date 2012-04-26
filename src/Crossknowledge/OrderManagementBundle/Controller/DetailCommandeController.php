@@ -81,6 +81,18 @@ class DetailCommandeController extends Controller {
                     'entities' => $entities,
                 ));
     }
+    
+    public function showLettrageAction() {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $user = $this->get('security.context')->getToken()->getUser();
+        
+        $entities = $em->getRepository('CrossknowledgeOrderManagementBundle:DetailCommande')->findByLettrage();
+
+        return $this->render('CrossknowledgeOrderManagementBundle:DetailCommande:showLettrage.html.twig', array(
+                    'entities' => $entities,
+                ));
+    }
 
     /**
      * Displays a form to create a new DetailCommande entity.

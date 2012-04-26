@@ -14,8 +14,10 @@ logas: Log in as
 ##Homepage
 home:
   title: Welcome on the order management tool
-  assignedto:  To see all the purchase orders assigned to you
+  assignedto:  To see the purchase orders assigned to you
+  lettrage: To see the purchase orders waiting for lettering
   assignedtoerror: No purchase orders are assigned to you at this time
+  lettrageerror: Any purchase orders need to be letter.
   clickhere: click here
   
 ##Commun
@@ -69,6 +71,7 @@ detailcommande:
   add : Add a new line to the order number
   print : Print
   listassign : List of order assigned to
+  listlettrage : List of purchase orders waiting for lettering
   
 ##Fournisseur
 fournisseur:

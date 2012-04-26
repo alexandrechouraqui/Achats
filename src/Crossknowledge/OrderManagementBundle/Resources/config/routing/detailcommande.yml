@@ -13,6 +13,10 @@ detailcommande_show:
 detailcommande_showassignedto:
     pattern: /showassignedto
     defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:showAssignedTo"}
+    
+detailcommande_showlettrage:
+    pattern: /showlettrage
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:DetailCommande:showLettrage"}
 
 detailcommande_new:
     pattern:  /{id_commande}/new
