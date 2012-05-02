@@ -37,19 +37,11 @@
 
     <table>
         <tr>
-            {% if is_granted('ROLE_ADMIN')%}
-                <td>
-                    <a href="{{ path('article_new') }}" class="btn primary">
-                        {{ "article.additem" | trans}}
-                    </a>
-                </td>
-            {% else %}
-                <td>
-                    <a  class="btn primary opener1">
-                        {{ "article.additem" | trans}}
-                    </a>
-                </td>
-            {% endif %}
+            <td>
+                <a href="{{ path('article_new') }}" class="btn primary">
+                    {{ "article.additem" | trans}}
+                </a>
+            </td>
         </tr>
     </table>
 {% endblock %}

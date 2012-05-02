@@ -25,7 +25,7 @@ class FournisseurController extends Controller
         $entities = $em->getRepository('CrossknowledgeOrderManagementBundle:Fournisseur')->findAll();
 
         return $this->render('CrossknowledgeOrderManagementBundle:Fournisseur:index.html.twig', array(
-            'entities' => $entities
+            'entities' => $entities,
         ));
     }
 
@@ -54,7 +54,7 @@ class FournisseurController extends Controller
 
     /**
      * Displays a form to create a new Fournisseur entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function newAction()
     {
@@ -69,7 +69,7 @@ class FournisseurController extends Controller
 
     /**
      * Creates a new Fournisseur entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function createAction()
     {
@@ -95,7 +95,7 @@ class FournisseurController extends Controller
 
     /**
      * Displays a form to edit an existing Fournisseur entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function editAction($id)
     {
@@ -119,7 +119,7 @@ class FournisseurController extends Controller
 
     /**
      * Edits an existing Fournisseur entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function updateAction($id)
     {

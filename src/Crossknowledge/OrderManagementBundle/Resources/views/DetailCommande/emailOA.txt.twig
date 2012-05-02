@@ -16,6 +16,6 @@ Prix HT : {{ entity.prixHT }} €<br>
 TVA : {{ entity.tva }} %<br>
 Prix TTC : {{ entity.prixTTC }} €<br>
 Accord du responsable : {% if entity.accordBUM == 1%}Yes{% else %}No{% endif %}<br>
-Responsable : {{ entity.assignedTo }}<br>
+Responsable : {{ entity.assignedTo.prenom }} {{ entity.assignedTo.nom }}<br>
 
 

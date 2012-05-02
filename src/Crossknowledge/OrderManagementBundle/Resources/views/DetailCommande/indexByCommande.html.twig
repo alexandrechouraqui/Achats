@@ -52,7 +52,7 @@
                 <td>
                     <a href="{{ path('detailcommande_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
                 </td>
-                {% if app.user.username == entity.createdBy || is_granted('ROLE_ADMIN')%}
+                {% if app.user.username == entity.createdBy or is_granted('ROLE_ADMIN')%}
                     <td>
                         <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
                     </td>
@@ -63,11 +63,11 @@
                 {% endif %}
                 {% if entity.type == 'OA' %}
                     <td>
-                        <a target="_blank" href="{{ path('detailcommande_print', { 'id': entity.id }) }}"><img style="border: none;" style="height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
+                        <a target="_blank" href="{{ path('detailcommande_print', { 'id': entity.id }) }}"><img style="border: none;height: 15px;width: 15px;" src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
                     </td>
                 {% else %}
                     <td>
-                        <a class="opener2" target="" href=""><img style="border: none;" style="height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
+                        <a class="opener2" target="" href=""><img style="border: none;height: 15px;width: 15px;"src="{{ asset('bundles/crossknowledgeordermanagement/images/print.png') }}"/></a>
                     </td>
                 {% endif %}
             </tr>

@@ -12,7 +12,11 @@ class TarifType extends AbstractType
         $builder
             ->add('prix', 'number', array('label' => 'tarif.prix'))
             ->add('ancienPrix', 'number', array('label' => 'tarif.ancienprix', 'precision' => '2'))
-            ->add('tva', 'number', array('label' => 'tarif.tva'))    
+            ->add('tva', 'choice', array('label' => 'tarif.tva', 'empty_value' => 'Sélectionnez le taux de TVA', 'choices' => array(
+                '19.6' => '19.6',
+                '5.5'  => '5.5',
+                '20' => '20'
+            )))    
             ->add('fournisseur', 'entity', array('class' => 'CrossknowledgeOrderManagementBundle:Fournisseur', 'property' => 'raisonSociale', 'label'=>'tarif.fournisseur','empty_value' => 'Sélectionnez un fournisseur'))
             ->add('article', 'entity', array('class' => 'CrossknowledgeOrderManagementBundle:Article', 'property' => 'typeArticle', 'label'=>'tarif.article','empty_value' => 'Sélectionnez un article'))
         ;

@@ -55,7 +55,7 @@ class TarifController extends Controller
 
     /**
      * Displays a form to create a new Tarif entity.
-     * @Secure(roles="ROLE_ADMIN")
+     * 
      */
     public function newAction()
     {
@@ -70,7 +70,7 @@ class TarifController extends Controller
 
     /**
      * Creates a new Tarif entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function createAction()
     {
@@ -96,7 +96,7 @@ class TarifController extends Controller
 
     /**
      * Displays a form to edit an existing Tarif entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function editAction($id)
     {
@@ -120,7 +120,7 @@ class TarifController extends Controller
 
     /**
      * Edits an existing Tarif entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function updateAction($id)
     {

@@ -2,70 +2,64 @@
 
 {% block body %}
     <h2>{{"fournisseur.list" | trans }}</h2>
-
-    <table class="zebra-striped tablesorter" id="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>{{"fournisseur.code" | trans }}</th>
-                <th>{{"fournisseur.type" | trans }}</th>
-                <th>{{"fournisseur.raisonsociale" | trans }}</th>
-                <th>{{"fournisseur.contact" | trans }}</th>
-                <th>{{"fournisseur.phone" | trans }}</th>
-                <th>{{"fournisseur.mail" | trans }}</th>
-                <th>{{"fournisseur.address" | trans }}</th>
-                <th>{{"fournisseur.CAorder" | trans }}</th>
-                <th>{{"fournisseur.CAlettre" | trans }}</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('fournisseur_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.codeFournisseur }}</td>
-                <td>{{ entity.typeFournisseur }}</td>
-                <td>{{ entity.raisonSociale }}</td>
-                <td>{{ entity.contact }}</td>
-                <td>{{ entity.telephone }}</td>
-                <td>{{ entity.mail }}</td>
-                <td>{{ entity.adresseFacturation }}</td>
-                <td>{{ entity.caCommande }} {{ entity.devise }}</td>
-                <td>{{ entity.caLettre }} {{ entity.devise }}</td>
-                <td>
-                    <a href="{{ path('fournisseur_show', { 'id': entity.id }) }}">{{"commun.see" | trans }}</a>
-                </td>
-                {% if is_granted('ROLE_ADMIN')%}
+    <div id="result">
+        <table class="zebra-striped tablesorter" id="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>{{"fournisseur.code" | trans }}</th>
+                    <th>{{"fournisseur.type" | trans }}</th>
+                    <th>{{"fournisseur.raisonsociale" | trans }}</th>
+                    <th>{{"fournisseur.contact" | trans }}</th>
+                    <th>{{"fournisseur.phone" | trans }}</th>
+                    <th>{{"fournisseur.mail" | trans }}</th>
+                    <th>{{"fournisseur.address" | trans }}</th>
+                    <th>{{"fournisseur.CAorder" | trans }}</th>
+                    <th>{{"fournisseur.CAlettre" | trans }}</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('fournisseur_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.codeFournisseur }}</td>
+                    <td>{{ entity.typeFournisseur }}</td>
+                    <td>{{ entity.raisonSociale }}</td>
+                    <td>{{ entity.contact }}</td>
+                    <td>{{ entity.telephone }}</td>
+                    <td>{{ entity.mail }}</td>
+                    <td>{{ entity.adresseFacturation }}</td>
+                    <td>{{ entity.caCommande }} {{ entity.devise }}</td>
+                    <td>{{ entity.caLettre }} {{ entity.devise }}</td>
                     <td>
-                        <a href="{{ path('fournisseur_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                        <a href="{{ path('fournisseur_show', { 'id': entity.id }) }}">{{"commun.see" | trans }}</a>
                     </td>
-                {% else %}
-                    <td>
-                        <a class="opener1" class="">
-                            <img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/>
-                        </a>
-                    </td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <table>
-        <tr>
-            {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_ADMIN')%}
+                        <td>
+                            <a href="{{ path('fournisseur_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                        </td>
+                    {% else %}
+                        <td>
+                            <a class="opener1" class="">
+                                <img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/>
+                            </a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="button">
+        <table>
+            <tr>
                 <td>
                     <a href="{{ path('fournisseur_new') }}" class="btn primary">
                         {{"fournisseur.add" | trans }}
                     </a>
                 </td>
-            {% else %}
-                <td>
-                    <button class="btn primary opener1">
-                        {{"fournisseur.add" | trans }}
-                    </button>
-                </td>
-            {% endif %}
-        </tr>
-    </table>
+            </tr>
+        </table
+    </div>
 {% endblock %}

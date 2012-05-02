@@ -54,7 +54,7 @@ class ArticleController extends Controller
 
     /**
      * Displays a form to create a new Article entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function newAction()
     {
@@ -69,7 +69,7 @@ class ArticleController extends Controller
 
     /**
      * Creates a new Article entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function createAction()
     {
@@ -95,7 +95,7 @@ class ArticleController extends Controller
 
     /**
      * Displays a form to edit an existing Article entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function editAction($id)
     {
@@ -119,7 +119,7 @@ class ArticleController extends Controller
 
     /**
      * Edits an existing Article entity.
-     * @Secure(roles="ROLE_ADMIN")
+     *
      */
     public function updateAction($id)
     {
