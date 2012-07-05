@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class FournisseurRepository extends EntityRepository
 {
+    public function getTotal()
+    {
+        $qb = $this->createQueryBuilder('a')
+                   ->select('COUNT(a)');     // On sélectionne simplement COUNT(a)
+
+        return (int) $qb->getQuery()
+                         ->getSingleScalarResult(); // Utilisation de getSingleScalarResult pour avoir directement le résultat du COUNT
+    }
 }

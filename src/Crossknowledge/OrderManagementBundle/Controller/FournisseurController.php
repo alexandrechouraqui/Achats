@@ -21,12 +21,50 @@ class FournisseurController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
-
+        
         $entities = $em->getRepository('CrossknowledgeOrderManagementBundle:Fournisseur')->findAll();
 
         return $this->render('CrossknowledgeOrderManagementBundle:Fournisseur:index.html.twig', array(
             'entities' => $entities,
         ));
+//        // On récupère le repository
+//        $repository = $this->getDoctrine()
+//                           ->getEntityManager()
+//                           ->getRepository('Crossknowledge:Fournisseur');
+//
+//        // On récupère le nombre total d'articles
+//       $nb_articles = $repository->getTotal();
+//
+//        // On définit le nombre d'articles par page
+//        // (pour l'instant en dur dans le contrôleur, mais par la suite on le transformera en paramètre du bundle)
+//        $nb_articles_page = 2;
+//
+//        // On calcule le nombre total de pages
+//        $nb_pages = ceil($nb_articles/$nb_articles_page);
+//
+//        // On va récupérer les articles à partir du N-ième article :
+//        $offset = ($page-1) * $nb_articles_page;
+//
+//        // Ici on a changé la condition pour déclencher une erreur 404
+//        // lorsque la page est inférieur à 1 ou supérieur au nombre max.
+//        if( $page < 1 OR $page > $nb_pages )
+//        {
+//            throw $this->createNotFoundException('Page inexistante (page = '.$page.')');
+//        }
+//
+//        // On récupère les articles qu'il faut grâce à findBy() :
+//        $entities = $repository->findBy(
+//            array(),                 // Pas de critère
+//            array('id' => 'desc'), // On tri par date décroissante
+//            $nb_articles_page,       // On sélectionne $nb_articles_page articles
+//            $offset                  // A partir du $offset ième
+//        );
+//
+//        return $this->render('CrossknowledgeOrderManagementBundle:Fournisseur:index.html.twig', array(
+//            'entities' => $entities,
+//            'page'     => $page,    // On transmet à la vue la page courante,
+//            'nb_pages' => $nb_pages // Et le nombre total de pages.
+//        ));
     }
 
     /**
@@ -185,4 +223,5 @@ class FournisseurController extends Controller
             ->getForm()
         ;
     }
+    
 }

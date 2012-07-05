@@ -81,7 +81,6 @@ class CommandeController extends Controller
 
     /**
      * Displays a form to create a new Commande entity.
-     * @Secure(roles="ROLE_USER, ROLE_MANAGER")
      */
     public function newAction()
     {
@@ -96,7 +95,6 @@ class CommandeController extends Controller
 
     /**
      * Creates a new Commande entity.
-     * @Secure(roles="ROLE_USER, ROLE_MANAGER")
      */
     public function createAction()
     {
@@ -122,7 +120,6 @@ class CommandeController extends Controller
 
     /**
      * Displays a form to edit an existing Commande entity.
-     * @Secure(roles="ROLE_USER, ROLE_MANAGER")
      */
     public function editAction($id)
     {
@@ -146,7 +143,6 @@ class CommandeController extends Controller
 
     /**
      * Edits an existing Commande entity.
-     * @Secure(roles="ROLE_USER, ROLE_MANAGER")
      */
     public function updateAction($id)
     {

@@ -1,6 +1,7 @@
 fournisseur:
     pattern:  /
-    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:index" }
+    defaults: { _controller: "CrossknowledgeOrderManagementBundle:Fournisseur:index"}
+
 
 fournisseur_show:
     pattern:  /{id}/show

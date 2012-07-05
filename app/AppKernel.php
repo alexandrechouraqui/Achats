@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Io\TcpdfBundle\IoTcpdfBundle(),
             new Crossknowledge\OrderManagementBundle\CrossknowledgeOrderManagementBundle(),
             new Crossknowledge\UserBundle\CrossknowledgeUserBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

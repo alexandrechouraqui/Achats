@@ -25,17 +25,23 @@
 
     <table class="">
         <tr>
-            <td style="width: 120px;">
+            <td style="width: 130px;">
                 <a href="{{ path('article') }}" class="btn info">
                     {{ "commun.backtolist" | trans}}
                 </a>
-            </td>        
+            </td>
+            {% if is_granted('ROLE_ADMIN') %}
             <td>
                 <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
                     <button type="submit" class="btn danger">{{ "commun.delete" | trans}}</button>
                 </form>
             </td>
+            {% else %}
+            <td>
+                <a class="btn danger opener1">{{ "commun.delete" | trans}}</a>
+            </td>
+            {% endif %}
         </tr>
     </table>
 {% endblock %}

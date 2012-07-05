@@ -27,12 +27,12 @@
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
-        {% if is_granted('ROLE_ADMIN') %}
             <td>
                 <a href="{{ path('article_edit', { 'id': entity.id }) }}" class="btn info">
                     {{ "commun.edit" | trans}}
                 </a>
             </td>
+            {% if is_granted('ROLE_ADMIN') %}
             <td>
                 <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
@@ -41,14 +41,9 @@
             </td>
         {% else %}
             <td>
-                <a class="btn info opener1">
-                    {{ "commun.edit" | trans}}
-                </a>
-            </td>>
-            <td>
                 <a class="btn danger opener1">{{ "commun.delete" | trans}}</a>
             </td>
-        </tr>
         {% endif %}
+        </tr>
     </table>
 {% endblock %}

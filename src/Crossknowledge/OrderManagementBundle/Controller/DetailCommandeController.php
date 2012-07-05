@@ -96,7 +96,6 @@ class DetailCommandeController extends Controller {
 
     /**
      * Displays a form to create a new DetailCommande entity.
-     * @Secure(roles="ROLE_USER, ROLE_MANAGER")
      */
     public function newAction($id_commande) {
         if ($id_commande != null) {
@@ -124,7 +123,6 @@ class DetailCommandeController extends Controller {
 
     /**
      * Creates a new DetailCommande entity.
-     * @Secure(roles="ROLE_USER, ROLE_MANAGER")
      */
     public function createAction($id_commande) {
         $entity = new DetailCommande();
@@ -271,7 +269,7 @@ class DetailCommandeController extends Controller {
         /* On vérifie que l'utilisateur peut modifier cette demande d'achat */
         if ($this->get('security.context')->getToken()->getUser() != $entity->getcreatedBy()) {
             if ($this->get('security.context')->getToken()->getUser() != $entity->getassignedTo()) {
-                if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+                if ( ! $this->get('security.context')->isGranted('ROLE_ADMIN')) {
                     throw new AccessDeniedHttpException('Vous n\'avez pas les droits de modifier cettte commande');
                 }
             }
@@ -478,7 +476,7 @@ class DetailCommandeController extends Controller {
     
     /**
      * Accord a DetailCommande entity.
-     * @Secure(roles="ROLE_ADMIN")
+     * @Secure(roles="ROLE_MANAGER, ROLE_ADMIN")
      */
     public function accordAction($id)
     {

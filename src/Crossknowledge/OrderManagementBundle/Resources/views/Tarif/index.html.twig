@@ -27,15 +27,9 @@
                 <td>
                     <a href="{{ path('tarif_show', { 'id': entity.id }) }}">{{ "commun.see" | trans }}</a>
                 </td>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <td>
-                        <a href="{{ path('tarif_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
-                    </td>
-                {% else %}
-                    <td>
-                        <a class="opener1"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
-                    </td>
-                {% endif%}
+                <td>
+                    <a href="{{ path('tarif_edit', { 'id': entity.id }) }}"><img style="border: none;" src="{{ asset('bundles/crossknowledgeordermanagement/images/edit-icon.png') }}"/></a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
