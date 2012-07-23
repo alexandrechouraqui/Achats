@@ -3,7 +3,7 @@
 {% block body %}
     <h2>{{ "tarif.list" | trans }}</h2>
 
-    <table class="zebra-striped tablesorter" id="table">
+    <table class="table table-striped tablesorter" id="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -35,10 +35,10 @@
         </tbody>
     </table>
 
-    <table>
+    <table class="table">
         <tr>
             <td>
-                <a href="{{ path('tarif_new') }}" class="btn primary">
+                <a href="{{ path('tarif_new') }}" class="btn btn-primary">
                     {{ "tarif.add" | trans }}
                 </a>
             </td>

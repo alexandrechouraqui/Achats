@@ -6,7 +6,7 @@
     <form action="{{ path('fournisseur_create') }}" method="post" {{ form_enctype(form) }}>
         {#{ form_widget(form) }#}
         {{ form_errors(form) }}
-        <table>
+            <table class="table">
             <tbody>
                 <tr>
                     <td>{{ form_label(form.codeFournisseur) }}</td>
@@ -51,17 +51,17 @@
                 {{ form_rest(form) }}
                 <tr>
                     <td style="text-align:center;" colspan="2">
-                            <button type="submit" class="btn primary">{{"commun.create" | trans }}</button>
+                            <button type="submit" class="btn btn-primary">{{"commun.create" | trans }}</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </form>
 
-    <table class="">
+    <table class="table">
         <tr>
             <td>
-                <a href="{{ path('fournisseur') }}" class="btn info">
+                <a href="{{ path('fournisseur') }}" class="btn btn-info">
                     {{"commun.backtolist" | trans }}
                 </a>
             </td>

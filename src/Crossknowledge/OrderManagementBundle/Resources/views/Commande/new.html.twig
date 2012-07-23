@@ -5,7 +5,7 @@
 
     <form action="{{ path('commande_create') }}" method="post" {{ form_enctype(form) }}>
         {#{ form_widget(form) }#}
-        <table>
+            <table class="table">
             <tbody>
                 <tr>
                     <td>{{ form_label(form.typeCommande) }}</td>
@@ -21,16 +21,16 @@
                 </tr>
                 {{ form_rest(form) }}
                 <tr>
-                    <td style="text-align:center;" colspan="2"><button type="submit" class="btn primary">{{ "commun.create" | trans }}</button></td>
+                    <td style="text-align:center;" colspan="2"><button type="submit" class="btn btn-primary">{{ "commun.create" | trans }}</button></td>
                 </tr>
             </tbody>
         </table>
     </form>
 
-    <table class="">
+    <table class="table">
         <tr>
             <td>
-                <a href="{{ path('commande') }}" class="btn info">
+                <a href="{{ path('commande') }}" class="btn btn-info">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </tr>

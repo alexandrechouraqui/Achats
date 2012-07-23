@@ -2,7 +2,7 @@
 
 {% block body %}
 <h2>{{ "commande.list" | trans}}</h2>
-<table class="zebra-striped tablesorter" id="table">
+<table class="table table-striped tablesorter" id="table">
     <thead>
         <tr>
             <th>Id</th>
@@ -38,7 +38,7 @@
     <table>
         <tr>
             <td>
-                <a href="{{ path('commande_new') }}" class="btn primary">
+                <a href="{{ path('commande_new') }}" class="btn btn-primary">
                     {{ "commande.add" | trans }}
                 </a>
             </td>

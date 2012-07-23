@@ -4,7 +4,7 @@
     <h2>{{ "commande.modifycommande" | trans}}</h2>
 
     <form action="{{ path('commande_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-        <table>
+        <table class="table">
             <tbody>
                 {{ form_errors(edit_form) }}
                 <tr>
@@ -21,16 +21,16 @@
                 </tr>
                 {{ form_rest(edit_form) }}
                 <tr>
-                    <td style="text-align:center;" colspan="2"><button type="submit" class="btn primary">{{ "commun.save" | trans}}</button></td>
+                    <td style="text-align:center;" colspan="2"><button type="submit" class="btn btn-primary">{{ "commun.save" | trans}}</button></td>
                 </tr>
             </tbody>
         </table>
     </form>
 
-    <table class="">
+    <table class="table">
         <tr>
             <td style="width: 130px;">
-                <a href="{{ path('commande') }}" class="btn info">
+                <a href="{{ path('commande') }}" class="btn btn-info">
                     {{ "commun.backtolist" | trans}}
                 </a>
             </td>
@@ -38,12 +38,12 @@
             <td>
                 <form action="{{ path('commande_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
-                        <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                        <button type="submit" class="btn btn-danger">{{ "commun.delete" | trans }}</button>
                 </form>
             </td>
             {% else %}
                 <td>
-                    <a class="btn danger opener1">{{ "commun.delete" | trans }}</a>
+                    <a class="btn btn-danger opener1">{{ "commun.delete" | trans }}</a>
                 </td>
             {% endif %}
         </tr>

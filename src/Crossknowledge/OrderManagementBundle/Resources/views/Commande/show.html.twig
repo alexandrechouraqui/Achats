@@ -3,7 +3,7 @@
 {% block body %}
     <h2>Commande</h2>
 
-    <table class="zebra-striped">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -24,22 +24,22 @@
         </tbody>
     </table>
 
-    <table class="">
+    <table class="table">
         <tr>
             <td colspan="3">
-                <a href="{{ path('detailcommande_new', { 'id_commande' : entity.id }) }}" class="btn info">
+                <a href="{{ path('detailcommande_new', { 'id_commande' : entity.id }) }}" class="btn btn-info">
                     {{ "detailcommande.add" | trans }} : {{ entity.id }}
                 </a>
             </td>
         </tr>
         <tr>
             <td style="width: 120px;">
-                <a href="{{ path('commande') }}" class="btn info">
+                <a href="{{ path('commande') }}" class="btn btn-info">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
             <td style="width: 70px;">
-                <a href="{{ path('commande_edit', { 'id': entity.id }) }}" class="btn info">
+                <a href="{{ path('commande_edit', { 'id': entity.id }) }}" class="btn btn-info">
                     {{ "commun.edit" | trans }}
                 </a>
             </td>
@@ -47,12 +47,12 @@
             <td>
                 <form action="{{ path('commande_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
-                        <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                        <button type="submit" class="btn btn-danger">{{ "commun.delete" | trans }}</button>
                 </form>
             </td>
         {% else %}
             <td>
-                <a class="btn danger opener1">{{ "commun.delete" | trans }}</a>
+                <a class="btn btn-danger opener1">{{ "commun.delete" | trans }}</a>
             </td>
         {% endif %}
         </tr>

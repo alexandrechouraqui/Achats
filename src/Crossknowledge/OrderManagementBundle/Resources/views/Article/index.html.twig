@@ -3,7 +3,7 @@
 {% block body %}
     <h2>{{ "article.list" | trans}}</h2>
 
-    <table class="zebra-striped tablesorter" id="table">
+    <table class="table table-striped tablesorter" id="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -38,7 +38,7 @@
     <table>
         <tr>
             <td>
-                <a href="{{ path('article_new') }}" class="btn primary">
+                <a href="{{ path('article_new') }}" class="btn btn-primary">
                     {{ "article.additem" | trans}}
                 </a>
             </td>

@@ -4,7 +4,7 @@
 <h2>{{ "detailcommande.list" | trans }} : {{ commande.id }}</h2>
 
 
-<table class="zebra-striped tablesorter" id="table">
+<table class="table table-striped tablesorter" id="table">
     <thead>
         <tr>
             <th>{{ "detailcommande.type" | trans }}</th>
@@ -75,17 +75,17 @@
         </tbody>
     </table>
 
-    <table>
+<table class="table">
         <tr>
             <td>
-                <a href="{{ path('detailcommande_new', { 'id_commande' : commande.id}) }}" class="btn primary">
+                <a href="{{ path('detailcommande_new', { 'id_commande' : commande.id}) }}" class="btn btn-primary">
                     {{ "detailcommande.add" | trans }} : {{ commande.id }}
                 </a>
             </td>
         </tr>
         <tr>
             <td>
-                <a href="{{ path('commande') }}" class="btn primary">
+                <a href="{{ path('commande') }}" class="btn btn-primary">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>

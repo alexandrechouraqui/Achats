@@ -5,7 +5,7 @@
 
     <form action="{{ path('detailcommande_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         {{ form_errors(edit_form) }}    
-        <table>
+        <table class="table">
             <tbody>
                  <tr>
                     <td>{{ form_label(edit_form.article) }}</td>
@@ -55,23 +55,23 @@
                 </tr>
                 {{ form_rest(edit_form) }}
                 <tr>
-                    <td colspan="4" style="text-align: center;"><button type="submit" class="btn primary" >{{ "commun.save" | trans }}</button></td>
+                    <td colspan="4" style="text-align: center;"><button type="submit" class="btn btn-primary" >{{ "commun.save" | trans }}</button></td>
                 </tr>
             </tbody>
         </table>
     </form>
 
-    <table class="">
+    <table class="table">
         <tr>
             <td style="width: 120px;">
-                <a href="{{ path('detailcommande_detail', { 'id' : entity.commande.id }) }}" class="btn primary">
+                <a href="{{ path('detailcommande_detail', { 'id' : entity.commande.id }) }}" class="btn btn-primary">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
             <td>
                 <form action="{{ path('detailcommande_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
-                    <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                    <button type="submit" class="btn btn-danger">{{ "commun.delete" | trans }}</button>
                 </form>
             </td>
         </tr>

@@ -3,7 +3,7 @@
 {% block body %}
     <h2>{{ "article.article" | trans}}</h2>
 
-    <table class="zebra-striped">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -20,15 +20,15 @@
         </tbody>
     </table>
 
-    <table class="" style="width: 450px;">
+    <table class="table" style="width: 450px;">
         <tr>
             <td>
-                <a href="{{ path('article') }}" class="btn info">
+                <a href="{{ path('article') }}" class="btn btn-info">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
             <td>
-                <a href="{{ path('article_edit', { 'id': entity.id }) }}" class="btn info">
+                <a href="{{ path('article_edit', { 'id': entity.id }) }}" class="btn btn-info">
                     {{ "commun.edit" | trans}}
                 </a>
             </td>
@@ -36,12 +36,12 @@
             <td>
                 <form action="{{ path('article_delete', { 'id': entity.id }) }}" method="post">
                     {{ form_widget(delete_form) }}
-                        <button type="submit" class="btn danger">{{ "commun.delete" | trans}}</button>
+                        <button type="submit" class="btn btn-danger">{{ "commun.delete" | trans}}</button>
                 </form>
             </td>
         {% else %}
             <td>
-                <a class="btn danger opener1">{{ "commun.delete" | trans}}</a>
+                <a class="btn btn-danger opener1">{{ "commun.delete" | trans}}</a>
             </td>
         {% endif %}
         </tr>

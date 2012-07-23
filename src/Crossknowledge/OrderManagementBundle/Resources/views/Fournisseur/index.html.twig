@@ -3,7 +3,7 @@
 {% block body %}
     <h2>{{"fournisseur.list" | trans }}</h2>
     <div id="result">
-        <table class="zebra-striped tablesorter" id="table">
+        <table class="table table-striped tablesorter" id="table">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -44,10 +44,10 @@
         </table>
     </div>
     <div id="button">
-        <table>
+        <table class="table">
             <tr>
                 <td>
-                    <a href="{{ path('fournisseur_new') }}" class="btn primary">
+                    <a href="{{ path('fournisseur_new') }}" class="btn btn-primary">
                         {{"fournisseur.add" | trans }}
                     </a>
                 </td>

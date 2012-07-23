@@ -3,7 +3,7 @@
 {% block body %}
     <h2>Ligne de la commande {{ entity.commande.id }}</h2>
 
-    <table class="zebra-striped">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>{{ "detailcommande.commande" | trans }}</th>
@@ -64,30 +64,30 @@
         </tbody>
     </table>
 
-    <table class="" style="">
+    <table class="table" style="">
         <tr>
             <td colspan="6">
-                <a href="{{ path('detailcommande_new', { 'id_commande' : entity.commande.id}) }}" class="btn primary">
+                <a href="{{ path('detailcommande_new', { 'id_commande' : entity.commande.id}) }}" class="btn btn-primary">
                     {{ "detailcommande.add" | trans }} : {{ entity.commande.id }}
                 </a>
             </td>
         </tr>
         <tr>
             <td colspan="">
-                <a href="{{ path('detailcommande_detail', {'id' : entity.commande.id }) }}" class="btn info">
+                <a href="{{ path('detailcommande_detail', {'id' : entity.commande.id }) }}" class="btn btn-info">
                     {{ "commun.backtolist" | trans }}
                 </a>
             </td>
         
             {% if app.user.username == entity.createdBy or is_granted('ROLE_ADMIN') %}
                 <td>
-                    <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}" class="btn info">
+                    <a href="{{ path('detailcommande_edit', { 'id': entity.id }) }}" class="btn btn-info">
                         {{ "commun.edit" | trans }}
                     </a>
                 </td>
             {% else %}
                 <td colspan="">
-                    <a id="opener1" class="btn info">
+                    <a id="opener1" class="btn btn-info">
                         {{ "commun.edit" | trans }}
                     </a>
                 </td>
@@ -95,26 +95,26 @@
             {% if is_granted('ROLE_ADMIN') %}
                 {% if entity.lettrage == 1 %}
                     <td>
-                        <a class="btn info disabled">
+                        <a class="btn btn-info disabled">
                             {{ "detailcommande.lettering" | trans }}
                         </a>
                     </td>
                 {% else %}
                     <td>
-                        <a href="{{ path('detailcommande_lettrage', { 'id': entity.id }) }}" class="btn info">
+                        <a href="{{ path('detailcommande_lettrage', { 'id': entity.id }) }}" class="btn btn-info">
                             {{ "detailcommande.lettering" | trans }}
                         </a>
                     </td>
                 {% endif %}
                 {% if entity.accordBUM == 1 %}
                     <td>
-                        <a class="btn info disabled">
+                        <a class="btn btn-info disabled">
                             {{ "detailcommande.accord" | trans }}
                         </a>
                     </td>
                 {% else %}
                     <td>
-                        <a href="{{ path('detailcommande_accord', { 'id': entity.id }) }}" class="btn info">
+                        <a href="{{ path('detailcommande_accord', { 'id': entity.id }) }}" class="btn btn-info">
                             {{ "detailcommande.accord" | trans }}
                         </a>
                     </td>
@@ -124,25 +124,23 @@
                 <td colspan="">
                     <form action="{{ path('detailcommande_delete', { 'id': entity.id }) }}" method="post">
                         {{ form_widget(delete_form) }}
-                            <button type="submit" class="btn danger">{{ "commun.delete" | trans }}</button>
+                            <button type="submit" class="btn btn-danger">{{ "commun.delete" | trans }}</button>
                     </form>
                 </td>
             {% else %}
                 <td colspan="">
-                    
-                    <a id="opener2" class="btn danger">{{ "commun.delete" | trans }}</a>
-
+                    <a id="opener2" class="btn btn-danger">{{ "commun.delete" | trans }}</a>
                 </td>
             {% endif %}  
             {% if entity.type == 'DA' %}
                 <td colspan="">
-                    <a class="btn info disabled">
+                    <a class="btn btn-info disabled">
                         {{ "detailcommande.print" | trans }}
                     </a>
                 </td>
             {% else %}
                 <td colspan="">
-                    <a href="{{ path('detailcommande_print', { 'id': entity.id }) }}" class="btn info" target="_blank">
+                    <a href="{{ path('detailcommande_print', { 'id': entity.id }) }}" class="btn btn-info" target="_blank">
                         {{ "detailcommande.print" | trans }}
                     </a>
                 </td>
